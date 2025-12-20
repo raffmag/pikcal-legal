@@ -82,16 +82,14 @@
         .logo-small {
             width: 36px;
             height: 36px;
-            background: var(--ds-black);
             border-radius: var(--radius-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow: hidden;
         }
 
-        .logo-small svg {
-            width: 20px;
-            height: 20px;
+        .logo-small img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .header h1 {
@@ -429,9 +427,7 @@
         </a>
         <div class="header-content">
             <div class="logo-small">
-                <svg viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="10" fill="#E8A87C"/>
-                </svg>
+                <img src="logo.png" alt="PikCal">
             </div>
             <h1>PikCal</h1>
         </div>
