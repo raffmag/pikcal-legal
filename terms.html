@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - PikCal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ds-black: #000000;
+            --ds-white: #FFFFFF;
+            --ds-gray: #9CA3AF;
+            --ds-light-gray: #F5F5F5;
+            --ds-accent: #E8A87C;
+            --ds-accent-light: #FDF2E9;
+            --ds-success: #10B981;
+            --ds-danger: #E57373;
+            --ds-warning: #F59E0B;
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-xxl: 48px;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--ds-white);
+            color: var(--ds-black);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--ds-light-gray);
+            padding: var(--spacing-xl) var(--spacing-lg);
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 680px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-md);
+        }
+
+        .back-link {
+            position: absolute;
+            left: var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--ds-gray);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            color: var(--ds-black);
+        }
+
+        .logo-small {
+            width: 36px;
+            height: 36px;
+            background: var(--ds-black);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-small svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .header h1 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: var(--spacing-xl) var(--spacing-lg);
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: var(--spacing-xxl);
+            padding: var(--spacing-xxl) 0;
+        }
+
+        .hero-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--ds-light-gray);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        .hero-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--ds-black);
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .hero .subtitle {
+            font-size: 16px;
+            color: var(--ds-gray);
+        }
+
+        .updated {
+            display: inline-block;
+            background: var(--ds-accent-light);
+            color: var(--ds-accent);
+            font-size: 12px;
+            font-weight: 500;
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: 20px;
+            margin-top: var(--spacing-md);
+        }
+
+        .tl-dr {
+            background: var(--ds-light-gray);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        .tl-dr h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--ds-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .tl-dr ul {
+            list-style: none;
+        }
+
+        .tl-dr li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+            font-size: 15px;
+        }
+
+        .tl-dr li:last-child {
+            margin-bottom: 0;
+        }
+
+        .tl-dr .bullet {
+            color: var(--ds-black);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        section {
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        h3 .icon {
+            width: 28px;
+            height: 28px;
+            background: var(--ds-light-gray);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        p {
+            color: var(--ds-gray);
+            margin-bottom: var(--spacing-md);
+            font-size: 15px;
+        }
+
+        .info-card {
+            background: var(--ds-light-gray);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .info-card.warning {
+            background: #FEF3C7;
+            border-left: 4px solid var(--ds-warning);
+        }
+
+        .info-card.danger {
+            background: #FEE2E2;
+            border-left: 4px solid var(--ds-danger);
+        }
+
+        .info-card-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--ds-black);
+            margin-bottom: var(--spacing-xs);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .info-card-content {
+            font-size: 13px;
+            color: var(--ds-gray);
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
+            background: var(--ds-light-gray);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .feature-list .feature-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--ds-black);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 16px;
+        }
+
+        .feature-list .feature-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .feature-list .feature-content p {
+            font-size: 13px;
+            margin: 0;
+        }
+
+        .plan-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .plan-card {
+            background: var(--ds-light-gray);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .plan-card.premium {
+            background: var(--ds-black);
+            color: var(--ds-white);
+        }
+
+        .plan-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .plan-card.premium h4 {
+            color: var(--ds-accent);
+        }
+
+        .plan-card ul {
+            list-style: none;
+            font-size: 13px;
+            text-align: left;
+        }
+
+        .plan-card li {
+            margin-bottom: var(--spacing-xs);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .plan-card .check {
+            color: var(--ds-success);
+        }
+
+        .plan-card.premium li {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .dont-list {
+            list-style: none;
+        }
+
+        .dont-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+            font-size: 14px;
+            color: var(--ds-gray);
+        }
+
+        .dont-list .x {
+            color: var(--ds-danger);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .contact-card {
+            background: var(--ds-black);
+            color: var(--ds-white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            text-align: center;
+        }
+
+        .contact-card h3 {
+            color: var(--ds-white);
+            justify-content: center;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .contact-card p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .contact-card a {
+            display: inline-block;
+            background: var(--ds-white);
+            color: var(--ds-black);
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: transform 0.2s;
+        }
+
+        .contact-card a:hover {
+            transform: scale(1.02);
+        }
+
+        .footer {
+            text-align: center;
+            padding: var(--spacing-xxl) var(--spacing-lg);
+            color: var(--ds-gray);
+            font-size: 13px;
+        }
+
+        .footer a {
+            color: var(--ds-accent);
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .back-link {
+                position: static;
+                margin-bottom: var(--spacing-md);
+            }
+
+            .header-content {
+                flex-direction: column;
+            }
+
+            .plan-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="./" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+            Back
+        </a>
+        <div class="header-content">
+            <div class="logo-small">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" fill="#E8A87C"/>
+                </svg>
+            </div>
+            <h1>PikCal</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <div class="hero-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                </svg>
+            </div>
+            <h2>Terms of Service</h2>
+            <p class="subtitle">Simple rules for using PikCal</p>
+            <span class="updated">Updated December 20, 2024</span>
+        </div>
+
+        <div class="tl-dr">
+            <h3>The Basics</h3>
+            <ul>
+                <li><span class="bullet">1.</span> PikCal helps you track nutrition through AI-powered photo scanning</li>
+                <li><span class="bullet">2.</span> Nutritional estimates are approximations, not medical advice</li>
+                <li><span class="bullet">3.</span> Premium unlocks unlimited scans; free users get 3 per day</li>
+                <li><span class="bullet">4.</span> Be respectful - one account per person, no abuse</li>
+            </ul>
+        </div>
+
+        <section>
+            <h3><span class="icon">&#128248;</span> What PikCal Does</h3>
+            <p>PikCal is a nutrition tracking app that uses artificial intelligence to analyze photos of your meals and estimate their nutritional content.</p>
+
+            <ul class="feature-list">
+                <li>
+                    <div class="feature-icon">&#128247;</div>
+                    <div class="feature-content">
+                        <h4>Snap Your Meals</h4>
+                        <p>Take a photo of any food and our AI identifies ingredients and portions</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="feature-icon">&#128202;</div>
+                    <div class="feature-content">
+                        <h4>Track Your Progress</h4>
+                        <p>Monitor daily calories, protein, carbs, and fat against personalized goals</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="feature-icon">&#127919;</div>
+                    <div class="feature-content">
+                        <h4>Reach Your Goals</h4>
+                        <p>Whether losing weight, building muscle, or maintaining - we calculate your targets</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h3><span class="icon">&#128100;</span> Your Account</h3>
+            <p>To use PikCal, you'll need to sign in with Apple or Google:</p>
+
+            <div class="info-card">
+                <div class="info-card-title">One Account Per Person</div>
+                <div class="info-card-content">Each person should maintain a single account. Creating multiple accounts to bypass scan limits or for any other reason is not allowed.</div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-card-title">Keep It Secure</div>
+                <div class="info-card-content">You're responsible for your account security. Don't share your login credentials with anyone.</div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-card-title">Accurate Information</div>
+                <div class="info-card-content">Provide truthful body metrics during setup - this ensures your calorie and macro goals are calculated correctly.</div>
+            </div>
+        </section>
+
+        <section>
+            <h3><span class="icon">&#11088;</span> Free vs Premium</h3>
+
+            <div class="plan-grid">
+                <div class="plan-card">
+                    <h4>Free</h4>
+                    <ul>
+                        <li><span class="check">&#10003;</span> 3 scans per day</li>
+                        <li><span class="check">&#10003;</span> Basic tracking</li>
+                        <li><span class="check">&#10003;</span> Goal setting</li>
+                        <li><span class="check">&#10003;</span> Meal history</li>
+                    </ul>
+                </div>
+                <div class="plan-card premium">
+                    <h4>Premium</h4>
+                    <ul>
+                        <li><span class="check">&#10003;</span> Unlimited scans</li>
+                        <li><span class="check">&#10003;</span> Advanced analytics</li>
+                        <li><span class="check">&#10003;</span> Priority support</li>
+                        <li><span class="check">&#10003;</span> Future features</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-card-title">Subscription Details</div>
+                <div class="info-card-content">Premium is billed through Apple. Subscriptions auto-renew unless cancelled at least 24 hours before the renewal date. Manage your subscription in Settings &gt; Apple ID &gt; Subscriptions.</div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-card-title">Refunds</div>
+                <div class="info-card-content">Refund requests are handled by Apple according to their refund policy. Contact Apple Support for refund inquiries.</div>
+            </div>
+        </section>
+
+        <section>
+            <h3><span class="icon">&#9888;&#65039;</span> Health Disclaimer</h3>
+
+            <div class="info-card warning">
+                <div class="info-card-title">&#9888;&#65039; Not Medical Advice</div>
+                <div class="info-card-content">PikCal is a nutrition tracking tool, not a substitute for professional medical advice. AI-estimated nutritional values are approximations based on visual analysis.</div>
+            </div>
+
+            <p>Please understand:</p>
+            <ul class="dont-list">
+                <li><span class="x">&#8226;</span> Calorie and macro estimates may vary from actual values</li>
+                <li><span class="x">&#8226;</span> Consult a healthcare professional before making significant dietary changes</li>
+                <li><span class="x">&#8226;</span> Don't rely solely on this app for managing health conditions</li>
+                <li><span class="x">&#8226;</span> We're not responsible for health outcomes from using this app</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3><span class="icon">&#128683;</span> Don't Do This</h3>
+            <p>To keep PikCal great for everyone, please don't:</p>
+
+            <ul class="dont-list">
+                <li><span class="x">&#10007;</span> Create multiple accounts or share your account</li>
+                <li><span class="x">&#10007;</span> Attempt to reverse-engineer, hack, or exploit the app</li>
+                <li><span class="x">&#10007;</span> Use automated tools or bots to access the service</li>
+                <li><span class="x">&#10007;</span> Upload inappropriate, harmful, or illegal content</li>
+                <li><span class="x">&#10007;</span> Abuse the AI scanning feature with non-food images</li>
+                <li><span class="x">&#10007;</span> Circumvent scan limits through any means</li>
+            </ul>
+
+            <div class="info-card danger">
+                <div class="info-card-title">&#128721; Account Termination</div>
+                <div class="info-card-content">We may suspend or terminate accounts that violate these terms, engage in abuse, or compromise the service for other users.</div>
+            </div>
+        </section>
+
+        <section>
+            <h3><span class="icon">&#128218;</span> Intellectual Property</h3>
+            <p>PikCal's design, code, AI models, and content are our intellectual property. You may not copy, modify, or distribute any part of our app.</p>
+            <p>Your content (meal photos, personal data) remains yours. We don't claim ownership of your data, but we need limited rights to provide the service (storing photos, processing with AI, etc.).</p>
+        </section>
+
+        <section>
+            <h3><span class="icon">&#9878;&#65039;</span> Legal Stuff</h3>
+
+            <div class="info-card">
+                <div class="info-card-title">Service Availability</div>
+                <div class="info-card-content">We strive for 99.9% uptime but can't guarantee uninterrupted service. Occasional maintenance or technical issues may occur.</div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-card-title">Limitation of Liability</div>
+                <div class="info-card-content">To the maximum extent permitted by law, we're not liable for indirect, incidental, or consequential damages. Our total liability is limited to what you've paid for Premium in the past 12 months.</div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-card-title">Governing Law</div>
+                <div class="info-card-content">These terms are governed by the laws of Canada. Any disputes will be resolved in Canadian courts.</div>
+            </div>
+        </section>
+
+        <section>
+            <h3><span class="icon">&#128221;</span> Changes to Terms</h3>
+            <p>We may update these terms as PikCal evolves. Continued use after changes means you accept the new terms. For significant changes, we'll notify you through the app.</p>
+        </section>
+
+        <div class="contact-card">
+            <h3>Questions?</h3>
+            <p>We're happy to clarify anything</p>
+            <a href="mailto:support@pikcal.app">Contact Support</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 PikCal. All rights reserved.</p>
+        <p><a href="privacy">Privacy Policy</a></p>
+    </div>
+</body>
+</html>

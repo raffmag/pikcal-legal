@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - PikCal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ds-black: #000000;
+            --ds-white: #FFFFFF;
+            --ds-gray: #9CA3AF;
+            --ds-light-gray: #F5F5F5;
+            --ds-accent: #E8A87C;
+            --ds-accent-light: #FDF2E9;
+            --ds-success: #10B981;
+            --ds-danger: #E57373;
+            --ds-calories: #F97316;
+            --ds-protein: #EF4444;
+            --ds-carbs: #F59E0B;
+            --ds-fat: #3B82F6;
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-xxl: 48px;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--ds-white);
+            color: var(--ds-black);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--ds-light-gray);
+            padding: var(--spacing-xl) var(--spacing-lg);
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 680px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-md);
+        }
+
+        .back-link {
+            position: absolute;
+            left: var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--ds-gray);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            color: var(--ds-black);
+        }
+
+        .logo-small {
+            width: 36px;
+            height: 36px;
+            background: var(--ds-black);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-small svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .header h1 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: var(--spacing-xl) var(--spacing-lg);
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: var(--spacing-xxl);
+            padding: var(--spacing-xxl) 0;
+        }
+
+        .hero-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--ds-light-gray);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        .hero-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--ds-black);
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .hero .subtitle {
+            font-size: 16px;
+            color: var(--ds-gray);
+        }
+
+        .updated {
+            display: inline-block;
+            background: var(--ds-accent-light);
+            color: var(--ds-accent);
+            font-size: 12px;
+            font-weight: 500;
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: 20px;
+            margin-top: var(--spacing-md);
+        }
+
+        .tl-dr {
+            background: var(--ds-light-gray);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        .tl-dr h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--ds-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .tl-dr ul {
+            list-style: none;
+        }
+
+        .tl-dr li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+            font-size: 15px;
+        }
+
+        .tl-dr li:last-child {
+            margin-bottom: 0;
+        }
+
+        .tl-dr .check {
+            color: var(--ds-success);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        section {
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        h3 .icon {
+            width: 28px;
+            height: 28px;
+            background: var(--ds-light-gray);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        p {
+            color: var(--ds-gray);
+            margin-bottom: var(--spacing-md);
+            font-size: 15px;
+        }
+
+        .data-card {
+            background: var(--ds-light-gray);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .data-card-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--ds-black);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .data-card-content {
+            font-size: 13px;
+            color: var(--ds-gray);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: var(--spacing-sm);
+        }
+
+        .service-card {
+            background: var(--ds-light-gray);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .service-card .name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--ds-black);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .service-card .purpose {
+            font-size: 12px;
+            color: var(--ds-gray);
+        }
+
+        .rights-list {
+            list-style: none;
+        }
+
+        .rights-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
+            background: var(--ds-light-gray);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .rights-list .right-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--ds-black);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .rights-list .right-icon svg {
+            width: 18px;
+            height: 18px;
+            color: var(--ds-white);
+        }
+
+        .rights-list .right-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .rights-list .right-content p {
+            font-size: 13px;
+            margin: 0;
+        }
+
+        .deletion-steps {
+            counter-reset: step;
+            list-style: none;
+        }
+
+        .deletion-steps li {
+            position: relative;
+            padding-left: 44px;
+            margin-bottom: var(--spacing-md);
+            font-size: 14px;
+            color: var(--ds-gray);
+        }
+
+        .deletion-steps li::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 28px;
+            height: 28px;
+            background: var(--ds-black);
+            color: var(--ds-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .contact-card {
+            background: var(--ds-black);
+            color: var(--ds-white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            text-align: center;
+        }
+
+        .contact-card h3 {
+            color: var(--ds-white);
+            justify-content: center;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .contact-card p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .contact-card a {
+            display: inline-block;
+            background: var(--ds-white);
+            color: var(--ds-black);
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: transform 0.2s;
+        }
+
+        .contact-card a:hover {
+            transform: scale(1.02);
+        }
+
+        .footer {
+            text-align: center;
+            padding: var(--spacing-xxl) var(--spacing-lg);
+            color: var(--ds-gray);
+            font-size: 13px;
+        }
+
+        .footer a {
+            color: var(--ds-accent);
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .back-link {
+                position: static;
+                margin-bottom: var(--spacing-md);
+            }
+
+            .header-content {
+                flex-direction: column;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="./" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+            Back
+        </a>
+        <div class="header-content">
+            <div class="logo-small">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" fill="#E8A87C"/>
+                </svg>
+            </div>
+            <h1>PikCal</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <div class="hero-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+            </div>
+            <h2>Privacy Policy</h2>
+            <p class="subtitle">Your data, your control. Always.</p>
+            <span class="updated">Updated December 20, 2024</span>
+        </div>
+
+        <div class="tl-dr">
+            <h3>The Short Version</h3>
+            <ul>
+                <li><span class="check">&#10003;</span> We only collect data needed to track your nutrition</li>
+                <li><span class="check">&#10003;</span> Your meal photos are analyzed by AI, then stored securely</li>
+                <li><span class="check">&#10003;</span> We never sell your personal information</li>
+                <li><span class="check">&#10003;</span> You can delete all your data anytime from the app</li>
+            </ul>
+        </div>
+
+        <section>
+            <h3><span class="icon">&#128100;</span> What We Collect</h3>
+            <p>We collect only what's necessary to provide you with accurate nutrition tracking:</p>
+
+            <div class="data-card">
+                <div class="data-card-title">Account Information</div>
+                <div class="data-card-content">Email address from Apple or Google Sign-In to identify your account</div>
+            </div>
+
+            <div class="data-card">
+                <div class="data-card-title">Body Metrics</div>
+                <div class="data-card-content">Height, weight, age, and gender to calculate your personalized calorie and macro goals</div>
+            </div>
+
+            <div class="data-card">
+                <div class="data-card-title">Fitness Profile</div>
+                <div class="data-card-content">Activity level, weight goals, and dietary preferences to tailor recommendations</div>
+            </div>
+
+            <div class="data-card">
+                <div class="data-card-title">Meal Data</div>
+                <div class="data-card-content">Photos you scan, identified foods, portions, and nutritional values</div>
+            </div>
+
+            <div class="data-card">
+                <div class="data-card-title">Preferences</div>
+                <div class="data-card-content">Language, measurement units, and portion display settings</div>
+            </div>
+        </section>
+
+        <section>
+            <h3><span class="icon">&#129302;</span> How AI Analyzes Your Meals</h3>
+            <p>When you snap a photo of your meal:</p>
+            <ol class="deletion-steps">
+                <li>Your photo is securely uploaded to our servers</li>
+                <li>AI (Google Gemini) identifies foods and estimates portions</li>
+                <li>Nutritional data is calculated and saved to your account</li>
+                <li>The original photo is stored so you can review your meals later</li>
+            </ol>
+            <p>AI analysis happens on secure cloud servers, not on your device. Your photos are never used to train AI models or shared with third parties.</p>
+        </section>
+
+        <section>
+            <h3><span class="icon">&#128274;</span> How We Protect Your Data</h3>
+            <p>Security isn't an afterthought - it's built into everything we do:</p>
+            <ul class="rights-list">
+                <li>
+                    <div class="right-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                    </div>
+                    <div class="right-content">
+                        <h4>Encrypted in Transit</h4>
+                        <p>All data is encrypted using HTTPS/TLS when moving between your device and our servers</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="right-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <div class="right-content">
+                        <h4>Secure Storage</h4>
+                        <p>Your data is stored on Supabase infrastructure with enterprise-grade security</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="right-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
+                        </svg>
+                    </div>
+                    <div class="right-content">
+                        <h4>Never Sold</h4>
+                        <p>We will never sell your personal information to advertisers or data brokers</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h3><span class="icon">&#128279;</span> Third-Party Services</h3>
+            <p>We partner with trusted services to power PikCal:</p>
+            <div class="service-grid">
+                <a href="https://supabase.com/privacy" class="service-card" target="_blank">
+                    <div class="name">Supabase</div>
+                    <div class="purpose">Database & Auth</div>
+                </a>
+                <a href="https://www.revenuecat.com/privacy" class="service-card" target="_blank">
+                    <div class="name">RevenueCat</div>
+                    <div class="purpose">Subscriptions</div>
+                </a>
+                <a href="https://policies.google.com/privacy" class="service-card" target="_blank">
+                    <div class="name">Google</div>
+                    <div class="purpose">Sign-In & AI</div>
+                </a>
+                <a href="https://www.apple.com/privacy/" class="service-card" target="_blank">
+                    <div class="name">Apple</div>
+                    <div class="purpose">Sign-In</div>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h3><span class="icon">&#128272;</span> Your Rights</h3>
+            <p>You're in control of your data:</p>
+            <ul class="rights-list">
+                <li>
+                    <div class="right-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </div>
+                    <div class="right-content">
+                        <h4>Access Your Data</h4>
+                        <p>View all your meals, goals, and profile data directly in the app</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="right-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                        </svg>
+                    </div>
+                    <div class="right-content">
+                        <h4>Edit Anytime</h4>
+                        <p>Update your profile, correct meal entries, or change your goals</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="right-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="3 6 5 6 21 6"/>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                        </svg>
+                    </div>
+                    <div class="right-content">
+                        <h4>Delete Everything</h4>
+                        <p>Go to Settings &gt; Delete Account to permanently erase all your data</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h3><span class="icon">&#128465;</span> Account Deletion</h3>
+            <p>When you delete your account, we permanently remove:</p>
+            <ol class="deletion-steps">
+                <li>Your profile and email address</li>
+                <li>All meal scans and food entries</li>
+                <li>Your photos from our storage</li>
+                <li>Goals, preferences, and onboarding data</li>
+                <li>Subscription records (purchases remain with Apple)</li>
+                <li>Your authentication account</li>
+            </ol>
+            <p>For Apple Sign-In users, we also revoke access tokens with Apple. Deletion is immediate and irreversible.</p>
+        </section>
+
+        <section>
+            <h3><span class="icon">&#128118;</span> Children's Privacy</h3>
+            <p>PikCal is designed for users 13 and older. We don't knowingly collect data from children under 13. If you believe a child has provided us with personal information, please contact us immediately.</p>
+        </section>
+
+        <section>
+            <h3><span class="icon">&#128221;</span> Policy Updates</h3>
+            <p>We may update this policy as PikCal evolves. Significant changes will be communicated through the app. The "Updated" date at the top reflects the latest revision.</p>
+        </section>
+
+        <div class="contact-card">
+            <h3>Questions?</h3>
+            <p>We're here to help with any privacy concerns</p>
+            <a href="mailto:support@pikcal.app">Contact Support</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 PikCal. All rights reserved.</p>
+        <p><a href="terms">Terms of Service</a></p>
+    </div>
+</body>
+</html>
