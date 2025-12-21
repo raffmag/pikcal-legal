@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - PikCal</title>
+    <meta name="description" content="Get help with PikCal - AI-powered calorie tracking app. Contact support, report issues, and find answers to common questions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ds-black: #000000;
+            --ds-white: #FFFFFF;
+            --ds-gray: #9CA3AF;
+            --ds-light-gray: #F5F5F5;
+            --ds-accent: #E8A87C;
+            --ds-accent-light: #FDF2E9;
+            --ds-success: #10B981;
+            --ds-danger: #E57373;
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-xxl: 48px;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--ds-white);
+            color: var(--ds-black);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--ds-white);
+            padding: var(--spacing-xl) var(--spacing-lg);
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .header-content {
+            max-width: 680px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-md);
+        }
+
+        .back-link {
+            position: absolute;
+            left: var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--ds-gray);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            color: var(--ds-black);
+        }
+
+        .logo-small {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+
+        .logo-small img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header h1 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: var(--spacing-xl) var(--spacing-lg);
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: var(--spacing-xxl);
+            padding: var(--spacing-xxl) 0;
+        }
+
+        .hero-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--ds-light-gray);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        .hero-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--ds-black);
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .hero .subtitle {
+            font-size: 16px;
+            color: var(--ds-gray);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: var(--spacing-xxl);
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        h3 .icon {
+            width: 28px;
+            height: 28px;
+            background: var(--ds-light-gray);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        p {
+            color: var(--ds-gray);
+            margin-bottom: var(--spacing-md);
+            font-size: 15px;
+        }
+
+        .contact-options {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding: var(--spacing-lg);
+            background: var(--ds-light-gray);
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-card.primary {
+            background: var(--ds-black);
+            color: var(--ds-white);
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--ds-black);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-card.primary .contact-icon {
+            background: var(--ds-white);
+        }
+
+        .contact-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--ds-white);
+        }
+
+        .contact-card.primary .contact-icon svg {
+            color: var(--ds-black);
+        }
+
+        .contact-text {
+            flex: 1;
+        }
+
+        .contact-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--ds-black);
+            margin-bottom: 2px;
+        }
+
+        .contact-card.primary .contact-title {
+            color: var(--ds-white);
+        }
+
+        .contact-subtitle {
+            font-size: 13px;
+            color: var(--ds-gray);
+        }
+
+        .contact-card.primary .contact-subtitle {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .contact-arrow {
+            color: var(--ds-gray);
+        }
+
+        .contact-card.primary .contact-arrow {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .quick-help {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        .help-card {
+            background: var(--ds-light-gray);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .help-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .help-card .icon {
+            font-size: 24px;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .help-card h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--ds-black);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .help-card p {
+            font-size: 13px;
+            color: var(--ds-gray);
+            margin: 0;
+        }
+
+        .info-card {
+            background: var(--ds-accent-light);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .info-card h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--ds-black);
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .info-card p {
+            font-size: 13px;
+            color: var(--ds-gray);
+            margin: 0;
+        }
+
+        .troubleshoot-list {
+            list-style: none;
+        }
+
+        .troubleshoot-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
+            background: var(--ds-light-gray);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .troubleshoot-list .step-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--ds-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--ds-white);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .troubleshoot-list .step-content h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .troubleshoot-list .step-content p {
+            font-size: 13px;
+            margin: 0;
+        }
+
+        .links-section {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-md);
+            background: var(--ds-light-gray);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            color: var(--ds-black);
+            transition: background 0.2s;
+        }
+
+        .link-item:hover {
+            background: #EFEFEF;
+        }
+
+        .link-item span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .link-item svg {
+            color: var(--ds-gray);
+        }
+
+        .footer {
+            text-align: center;
+            padding: var(--spacing-xxl) var(--spacing-lg);
+            color: var(--ds-gray);
+            font-size: 13px;
+            border-top: 1px solid var(--ds-light-gray);
+            margin-top: var(--spacing-xxl);
+        }
+
+        .footer a {
+            color: var(--ds-accent);
+            text-decoration: none;
+        }
+
+        .footer-links {
+            margin-top: var(--spacing-md);
+        }
+
+        .footer-links a {
+            margin: 0 var(--spacing-sm);
+        }
+
+        @media (max-width: 600px) {
+            .back-link {
+                position: static;
+                margin-bottom: var(--spacing-md);
+            }
+
+            .header-content {
+                flex-direction: column;
+            }
+
+            .quick-help {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="./" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+            Back
+        </a>
+        <div class="header-content">
+            <div class="logo-small">
+                <img src="logo.png" alt="PikCal">
+            </div>
+            <h1>PikCal</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <div class="hero-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                </svg>
+            </div>
+            <h2>How can we help?</h2>
+            <p class="subtitle">Get support for PikCal, the AI-powered calorie tracking app</p>
+        </div>
+
+        <section>
+            <h3><span class="icon">&#128172;</span> Contact Us</h3>
+            <p>Have a question, feedback, or need help? We typically respond within 24 hours.</p>
+
+            <div class="contact-options">
+                <a href="mailto:support@pikcal.app" class="contact-card primary">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </div>
+                    <div class="contact-text">
+                        <div class="contact-title">Email Support</div>
+                        <div class="contact-subtitle">support@pikcal.app</div>
+                    </div>
+                    <svg class="contact-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+
+                <a href="faq.html" class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                    </div>
+                    <div class="contact-text">
+                        <div class="contact-title">FAQ</div>
+                        <div class="contact-subtitle">Find answers to common questions</div>
+                    </div>
+                    <svg class="contact-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h3><span class="icon">&#128736;</span> Quick Troubleshooting</h3>
+            <p>Try these steps before contacting support:</p>
+
+            <ul class="troubleshoot-list">
+                <li>
+                    <div class="step-icon">1</div>
+                    <div class="step-content">
+                        <h4>Restart the app</h4>
+                        <p>Force close PikCal and reopen it. This fixes most temporary issues.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-icon">2</div>
+                    <div class="step-content">
+                        <h4>Check your internet connection</h4>
+                        <p>Scanning requires an internet connection for AI analysis.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-icon">3</div>
+                    <div class="step-content">
+                        <h4>Update to the latest version</h4>
+                        <p>Open the App Store and check for updates to PikCal.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-icon">4</div>
+                    <div class="step-content">
+                        <h4>Check app permissions</h4>
+                        <p>Go to Settings > PikCal and ensure Camera access is enabled.</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h3><span class="icon">&#9889;</span> Quick Help</h3>
+            <div class="quick-help">
+                <a href="faq.html#scanning" class="help-card">
+                    <div class="icon">&#128247;</div>
+                    <h4>Scanning Issues</h4>
+                    <p>Problems with meal scanning or AI analysis</p>
+                </a>
+                <a href="faq.html#premium" class="help-card">
+                    <div class="icon">&#11088;</div>
+                    <h4>Subscription Help</h4>
+                    <p>Premium, billing, or restore purchases</p>
+                </a>
+                <a href="faq.html#privacy" class="help-card">
+                    <div class="icon">&#128274;</div>
+                    <h4>Privacy & Data</h4>
+                    <p>Account deletion or data questions</p>
+                </a>
+                <a href="faq.html#getting-started" class="help-card">
+                    <div class="icon">&#128640;</div>
+                    <h4>Getting Started</h4>
+                    <p>Learn how to use PikCal</p>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h3><span class="icon">&#128221;</span> When Contacting Support</h3>
+            <div class="info-card">
+                <h4>&#128161; Help us help you faster</h4>
+                <p>Please include: your device model (e.g., iPhone 15), iOS version, app version (found in Settings), and a description of your issue. Screenshots are helpful too!</p>
+            </div>
+        </section>
+
+        <section>
+            <h3><span class="icon">&#128279;</span> Useful Links</h3>
+            <div class="links-section">
+                <a href="privacy.html" class="link-item">
+                    <span>Privacy Policy</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+                <a href="terms.html" class="link-item">
+                    <span>Terms of Service</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+                <a href="faq.html" class="link-item">
+                    <span>Frequently Asked Questions</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p><strong>PikCal</strong> — Snap. Track. Thrive.</p>
+        <p>AI-powered calorie and macro tracking</p>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+        <p style="margin-top: var(--spacing-md);">&copy; 2025 PikCal. All rights reserved.</p>
+    </div>
+</body>
+</html>
