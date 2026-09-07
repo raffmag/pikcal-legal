@@ -39,29 +39,15 @@
   }
 
   function mountChrome() {
-    const wrap = document.createElement("div");
-    wrap.className = "island-wrap";
-    wrap.innerHTML = `
-      <div class="island">
-        <a class="brand" href="index.html">
-          <img src="logo.png?v=3" width="36" height="36" alt="PikCal">
-          <strong>PikCal</strong>
-        </a>
-        <nav>${pages.map((p) =>
-          `<a href="${p.href}" class="${current === p.href ? "is-active" : ""}" data-en="${p.en}" data-fr="${p.fr}">${p.en}</a>`
-        ).join("")}</nav>
+    const classic = document.body.classList.contains("doc");
+    const nav = pages.map((p) =>
+      `<a href="${p.href}" class="${current === p.href ? "is-active" : ""}" data-en="${p.en}" data-fr="${p.fr}">${p.en}</a>`
+    ).join("");
+    const lang = `
         <div class="lang" role="group" aria-label="Language">
           <button type="button" data-lang="en">EN</button>
           <button type="button" data-lang="fr">FR</button>
-        </div>
-      </div>`;
-    document.body.prepend(wrap);
-
-    const bar = document.createElement("div");
-    bar.className = "macro-bar";
-    bar.setAttribute("aria-hidden", "true");
-    bar.innerHTML = "<i></i><i></i><i></i>";
-    document.body.prepend(bar);
+        </div>`;
 
     const skip = document.createElement("a");
     skip.className = "skip";
@@ -69,9 +55,41 @@
     skip.textContent = "Skip to content";
     document.body.prepend(skip);
 
-    if (!document.querySelector(".site-foot")) {
+    if (classic) {
+      const top = document.createElement("header");
+      top.className = "doc-top";
+      top.innerHTML = `
+        <a class="brand" href="index.html">
+          <img src="logo.png?v=3" width="32" height="32" alt="">
+          <strong>PikCal</strong>
+        </a>
+        <nav>${nav}</nav>
+        ${lang}`;
+      document.body.prepend(top);
+    } else {
+      const wrap = document.createElement("div");
+      wrap.className = "island-wrap";
+      wrap.innerHTML = `
+      <div class="island">
+        <a class="brand" href="index.html">
+          <img src="logo.png?v=3" width="36" height="36" alt="PikCal">
+          <strong>PikCal</strong>
+        </a>
+        <nav>${nav}</nav>
+        ${lang}
+      </div>`;
+      document.body.prepend(wrap);
+
+      const bar = document.createElement("div");
+      bar.className = "macro-bar";
+      bar.setAttribute("aria-hidden", "true");
+      bar.innerHTML = "<i></i><i></i><i></i>";
+      document.body.prepend(bar);
+    }
+
+    if (!document.querySelector(".site-foot") && !document.querySelector(".doc-foot")) {
       const foot = document.createElement("footer");
-      foot.className = "site-foot";
+      foot.className = classic ? "doc-foot" : "site-foot";
       foot.innerHTML = `
         <span>© 2026 PikCal</span>
         <nav>
