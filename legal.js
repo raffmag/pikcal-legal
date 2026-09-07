@@ -44,7 +44,7 @@
     wrap.innerHTML = `
       <div class="island">
         <a class="brand" href="index.html">
-          <img src="logo.png" width="36" height="36" alt="">
+          <img src="logo.png" width="36" height="36" alt="PikCal">
           <strong>PikCal</strong>
         </a>
         <nav>${pages.map((p) =>
