@@ -1,632 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - PikCal</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --ds-black: #000000;
-            --ds-white: #FFFFFF;
-            --ds-gray: #9CA3AF;
-            --ds-light-gray: #F5F5F5;
-            --ds-accent: #E8A87C;
-            --ds-accent-light: #FDF2E9;
-            --ds-success: #10B981;
-            --ds-danger: #E57373;
-            --ds-calories: #F97316;
-            --ds-protein: #EF4444;
-            --ds-carbs: #F59E0B;
-            --ds-fat: #3B82F6;
-            --spacing-xs: 4px;
-            --spacing-sm: 8px;
-            --spacing-md: 16px;
-            --spacing-lg: 24px;
-            --spacing-xl: 32px;
-            --spacing-xxl: 48px;
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 24px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--ds-white);
-            color: var(--ds-black);
-            line-height: 1.6;
-        }
-
-        .header {
-            background: var(--ds-white);
-            padding: var(--spacing-xl) var(--spacing-lg);
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0,0,0,0.08);
-        }
-
-        .header-content {
-            max-width: 680px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--spacing-md);
-        }
-
-        .back-link {
-            position: absolute;
-            left: var(--spacing-lg);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            color: var(--ds-gray);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .back-link:hover {
-            color: var(--ds-black);
-        }
-
-        .logo-small {
-            width: 36px;
-            height: 36px;
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-        }
-
-        .logo-small img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .header h1 {
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        .container {
-            max-width: 680px;
-            margin: 0 auto;
-            padding: var(--spacing-xl) var(--spacing-lg);
-        }
-
-        .hero {
-            text-align: center;
-            margin-bottom: var(--spacing-xxl);
-            padding: var(--spacing-xxl) 0;
-        }
-
-        .hero-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--ds-light-gray);
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto var(--spacing-lg);
-        }
-
-        .hero-icon svg {
-            width: 32px;
-            height: 32px;
-            color: var(--ds-black);
-        }
-
-        .hero h2 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .hero .subtitle {
-            font-size: 16px;
-            color: var(--ds-gray);
-        }
-
-        .updated {
-            display: inline-block;
-            background: var(--ds-accent-light);
-            color: var(--ds-accent);
-            font-size: 12px;
-            font-weight: 500;
-            padding: var(--spacing-xs) var(--spacing-md);
-            border-radius: 20px;
-            margin-top: var(--spacing-md);
-        }
-
-        .tl-dr {
-            background: var(--ds-light-gray);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-lg);
-            margin-bottom: var(--spacing-xxl);
-        }
-
-        .tl-dr h3 {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--ds-gray);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .tl-dr ul {
-            list-style: none;
-        }
-
-        .tl-dr li {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-sm);
-            font-size: 15px;
-        }
-
-        .tl-dr li:last-child {
-            margin-bottom: 0;
-        }
-
-        .tl-dr .check {
-            color: var(--ds-success);
-            font-weight: 600;
-            flex-shrink: 0;
-        }
-
-        section {
-            margin-bottom: var(--spacing-xxl);
-        }
-
-        h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: var(--spacing-md);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-        }
-
-        h3 .icon {
-            width: 28px;
-            height: 28px;
-            background: var(--ds-light-gray);
-            border-radius: var(--radius-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-
-        p {
-            color: var(--ds-gray);
-            margin-bottom: var(--spacing-md);
-            font-size: 15px;
-        }
-
-        .data-card {
-            background: var(--ds-light-gray);
-            border-radius: var(--radius-md);
-            padding: var(--spacing-md);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .data-card-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--ds-black);
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .data-card-content {
-            font-size: 13px;
-            color: var(--ds-gray);
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: var(--spacing-sm);
-        }
-
-        .service-card {
-            background: var(--ds-light-gray);
-            border-radius: var(--radius-md);
-            padding: var(--spacing-md);
-            text-align: center;
-            text-decoration: none;
-            transition: transform 0.2s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-2px);
-        }
-
-        .service-card .name {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--ds-black);
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .service-card .purpose {
-            font-size: 12px;
-            color: var(--ds-gray);
-        }
-
-        .rights-list {
-            list-style: none;
-        }
-
-        .rights-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--spacing-md);
-            padding: var(--spacing-md);
-            background: var(--ds-light-gray);
-            border-radius: var(--radius-md);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .rights-list .right-icon {
-            width: 36px;
-            height: 36px;
-            background: var(--ds-black);
-            border-radius: var(--radius-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .rights-list .right-icon svg {
-            width: 18px;
-            height: 18px;
-            color: var(--ds-white);
-        }
-
-        .rights-list .right-content h4 {
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .rights-list .right-content p {
-            font-size: 13px;
-            margin: 0;
-        }
-
-        .deletion-steps {
-            counter-reset: step;
-            list-style: none;
-        }
-
-        .deletion-steps li {
-            position: relative;
-            padding-left: 44px;
-            margin-bottom: var(--spacing-md);
-            font-size: 14px;
-            color: var(--ds-gray);
-        }
-
-        .deletion-steps li::before {
-            counter-increment: step;
-            content: counter(step);
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 28px;
-            height: 28px;
-            background: var(--ds-black);
-            color: var(--ds-white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-        .contact-card {
-            background: var(--ds-black);
-            color: var(--ds-white);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-xl);
-            text-align: center;
-        }
-
-        .contact-card h3 {
-            color: var(--ds-white);
-            justify-content: center;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .contact-card p {
-            color: rgba(255,255,255,0.7);
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .contact-card a {
-            display: inline-block;
-            background: var(--ds-white);
-            color: var(--ds-black);
-            padding: var(--spacing-md) var(--spacing-xl);
-            border-radius: var(--radius-md);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            transition: transform 0.2s;
-        }
-
-        .contact-card a:hover {
-            transform: scale(1.02);
-        }
-
-        .footer {
-            text-align: center;
-            padding: var(--spacing-xxl) var(--spacing-lg);
-            color: var(--ds-gray);
-            font-size: 13px;
-        }
-
-        .footer a {
-            color: var(--ds-accent);
-            text-decoration: none;
-        }
-
-        @media (max-width: 600px) {
-            .back-link {
-                position: static;
-                margin-bottom: var(--spacing-md);
-            }
-
-            .header-content {
-                flex-direction: column;
-            }
-
-            .service-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy · PikCal</title>
+  <meta name="description" content="How PikCal collects, uses, and deletes your nutrition data. Photos go to AI only after you allow it. Body figures stay on your phone.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Privacy Policy · PikCal">
+  <meta property="og:description" content="Your meals, your control. Read how PikCal handles photos, health data, and AI.">
+  <link rel="icon" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="theme.css">
 </head>
 <body>
-    <div class="header">
-        <a href="./" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M15 18l-6-6 6-6"/>
-            </svg>
-            Back
-        </a>
-        <div class="header-content">
-            <div class="logo-small">
-                <img src="logo.png" alt="PikCal">
-            </div>
-            <h1>PikCal</h1>
+  <main id="content" class="page legal-grid">
+    <aside class="lede reveal">
+      <div class="kicker"><span class="dots" aria-hidden="true"><span></span><span></span><span></span></span> <span data-en="Legal · Privacy" data-fr="Légal · Confidentialité">Legal · Privacy</span></div>
+      <h1 data-en="Your data,<br>your control." data-fr="Vos données,<br>votre contrôle.">Your data,<br>your control.</h1>
+      <p class="subhead" data-en="PikCal is a nutrition tracker for iPhone and Android. This policy is the honest map of what leaves the phone, and what never does." data-fr="PikCal est un suivi nutritionnel pour iPhone et Android. Cette politique dit clairement ce qui quitte le téléphone, et ce qui n’en sort jamais.">PikCal is a nutrition tracker for iPhone and Android. This policy is the honest map of what leaves the phone, and what never does.</p>
+      <div class="meta-row">
+        <span class="pill" data-en="Updated 7 September 2026" data-fr="Mis à jour le 7 septembre 2026">Updated 7 September 2026</span>
+        <span class="pill">support@pikcal.app</span>
+      </div>
+      <nav class="toc" aria-label="On this page">
+        <a href="#short" data-en="In short" data-fr="En bref">In short</a>
+        <a href="#collect" data-en="What we collect" data-fr="Ce que nous collectons">What we collect</a>
+        <a href="#ai" data-en="How AI sees a meal" data-fr="Comment l’IA voit un repas">How AI sees a meal</a>
+        <a href="#plan" data-en="Your plan" data-fr="Votre plan">Your plan</a>
+        <a href="#health" data-en="Health data" data-fr="Données de santé">Health data</a>
+        <a href="#analytics" data-en="Analytics &amp; crashes" data-fr="Analyses et crashs">Analytics &amp; crashes</a>
+        <a href="#notify" data-en="Notifications" data-fr="Notifications">Notifications</a>
+        <a href="#processors" data-en="Processors" data-fr="Prestataires">Processors</a>
+        <a href="#rights" data-en="Your rights" data-fr="Vos droits">Your rights</a>
+        <a href="#gdpr" data-en="Europe (GDPR)" data-fr="Europe (RGPD)">Europe (GDPR)</a>
+        <a href="#delete" data-en="Account deletion" data-fr="Suppression du compte">Account deletion</a>
+        <a href="#children" data-en="Children" data-fr="Enfants">Children</a>
+        <a href="#updates" data-en="Updates" data-fr="Mises à jour">Updates</a>
+      </nav>
+    </aside>
+
+    <article class="prose reveal">
+      <div class="bezel" id="short">
+        <div class="inner stack">
+          <h2 style="margin:0"><span class="num">01</span><span data-en="In short" data-fr="En bref">In short</span></h2>
+          <ul>
+            <li data-en="We collect what we need to track your nutrition and keep your account." data-fr="Nous collectons ce qu’il faut pour suivre votre nutrition et tenir votre compte.">We collect what we need to track your nutrition and keep your account.</li>
+            <li data-en="A meal photo or typed description is sent to OpenRouter (then Google and/or OpenAI) only after you tap Allow in the app." data-fr="Une photo de repas ou une description tapée n’est envoyée à OpenRouter (puis Google et/ou OpenAI) qu’après un Allow dans l’app.">A meal photo or typed description is sent to OpenRouter (then Google and/or OpenAI) only after you tap Allow in the app.</li>
+            <li data-en="Height, weight, age, calories and dates stay on the phone when we write your plan. The model is not shown a number." data-fr="Taille, poids, âge, calories et dates restent sur le téléphone pour le calcul du plan. Le modèle ne voit aucun chiffre.">Height, weight, age, calories and dates stay on the phone when we write your plan. The model is not shown a number.</li>
+            <li data-en="We do not sell your personal information." data-fr="Nous ne vendons pas vos informations personnelles.">We do not sell your personal information.</li>
+            <li data-en="You can export or delete everything from Settings." data-fr="Vous pouvez exporter ou tout supprimer depuis Réglages.">You can export or delete everything from Settings.</li>
+            <li data-en="Usage analytics is optional. Crash reports help us fix the app." data-fr="Les analyses d’usage sont optionnelles. Les rapports de crash nous aident à corriger l’app.">Usage analytics is optional. Crash reports help us fix the app.</li>
+          </ul>
         </div>
-    </div>
+      </div>
 
-    <div class="container">
-        <div class="hero">
-            <div class="hero-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                </svg>
-            </div>
-            <h2>Privacy Policy</h2>
-            <p class="subtitle">Your data, your control. Always.</p>
-            <span class="updated">Updated December 21, 2025</span>
+      <h2 id="collect"><span class="num">02</span><span data-en="What we collect" data-fr="Ce que nous collectons">What we collect</span></h2>
+      <p data-en="Only what the product needs to work." data-fr="Uniquement ce dont le produit a besoin pour fonctionner.">Only what the product needs to work.</p>
+      <div class="stack">
+        <div class="tile"><div class="t" data-en="Account" data-fr="Compte">Account</div><p class="d" data-en="Email from Sign in with Apple or Google, so we can identify your account and sync." data-fr="E-mail via Connexion avec Apple ou Google, pour identifier votre compte et synchroniser.">Email from Sign in with Apple or Google, so we can identify your account and sync.</p></div>
+        <div class="tile"><div class="t" data-en="Body metrics" data-fr="Mesures corporelles">Body metrics</div><p class="d" data-en="Height, weight, age and sex, used on-device to calculate calorie and macro targets. These numbers are stored on your account for the signed-in experience. They are not sent to the plan-writing models." data-fr="Taille, poids, âge et sexe, utilisés sur l’appareil pour calculer les objectifs. Ces chiffres sont stockés sur le compte connecté. Ils ne sont pas envoyés aux modèles qui rédigent le plan.">Height, weight, age and sex, used on-device to calculate calorie and macro targets. These numbers are stored on your account for the signed-in experience. They are not sent to the plan-writing models.</p></div>
+        <div class="tile"><div class="t" data-en="Fitness profile" data-fr="Profil">Fitness profile</div><p class="d" data-en="Activity level, weight goal, pace, diet style, and the qualitative answers you give in onboarding." data-fr="Niveau d’activité, objectif de poids, rythme, type d’alimentation, et réponses qualitatives de l’onboarding.">Activity level, weight goal, pace, diet style, and the qualitative answers you give in onboarding.</p></div>
+        <div class="tile"><div class="t" data-en="Meals" data-fr="Repas">Meals</div><p class="d" data-en="Photos you scan, typed descriptions, barcode lookups, identified foods, portions, calories and macros, plus later edits." data-fr="Photos scannées, descriptions tapées, codes-barres, aliments identifiés, portions, calories et macros, et corrections.">Photos you scan, typed descriptions, barcode lookups, identified foods, portions, calories and macros, plus later edits.</p></div>
+        <div class="tile"><div class="t" data-en="Preferences" data-fr="Préférences">Preferences</div><p class="d" data-en="Language, units, appearance, and portion display." data-fr="Langue, unités, apparence, affichage des portions.">Language, units, appearance, and portion display.</p></div>
+        <div class="tile"><div class="t" data-en="Device" data-fr="Appareil">Device</div><p class="d" data-en="Model, OS version and app version, for crash reports and support. Not your meal content." data-fr="Modèle, version d’OS et d’app, pour les crashs et le support. Pas le contenu des repas.">Model, OS version and app version, for crash reports and support. Not your meal content.</p></div>
+      </div>
+
+      <h2 id="ai"><span class="num">03</span><span data-en="How AI sees a meal" data-fr="Comment l’IA voit un repas">How AI sees a meal</span></h2>
+      <p data-en="Scanning a plate, a nutrition label, or a typed description uses cloud models. Nothing is sent until you allow it in the app (Allow / Not now). You can change this later in Settings." data-fr="Scanner une assiette, une étiquette ou une description tapée utilise des modèles cloud. Rien n’est envoyé avant un Allow dans l’app. Vous pouvez changer cela dans Réglages.">Scanning a plate, a nutrition label, or a typed description uses cloud models. Nothing is sent until you allow it in the app (Allow / Not now). You can change this later in Settings.</p>
+      <ol class="steps">
+        <li data-en="Only the cropped photo, or the text you typed, is uploaded." data-fr="Seule la photo recadrée, ou le texte tapé, est envoyé.">Only the cropped photo, or the text you typed, is uploaded.</li>
+        <li data-en="OpenRouter routes the request to Google and/or OpenAI models." data-fr="OpenRouter achemine la requête vers des modèles Google et/ou OpenAI.">OpenRouter routes the request to Google and/or OpenAI models.</li>
+        <li data-en="Estimates for foods, portions, calories and macros are saved to your account." data-fr="Les estimations (aliments, portions, calories, macros) sont enregistrées sur votre compte.">Estimates for foods, portions, calories and macros are saved to your account.</li>
+        <li data-en="The photo is stored so you can review and edit the meal later." data-fr="La photo est conservée pour revoir et corriger le repas plus tard.">The photo is stored so you can review and edit the meal later.</li>
+      </ol>
+      <p data-en="We do not sell this data. We share it with the processors listed below so the feature can run, and only after in-app Allow. Model providers process inputs under their own policies. Some providers may use inputs to improve their models. We do not train our own models on your meals. We do not send weight, height, age, calories or dates to those models." data-fr="Nous ne vendons pas ces données. Nous les partageons avec les prestataires ci-dessous pour faire fonctionner la fonction, uniquement après Allow. Les fournisseurs de modèles traitent les données selon leurs propres politiques. Certains peuvent utiliser les entrées pour améliorer leurs modèles. Nous n’entraînons pas nos propres modèles sur vos repas. Nous n’envoyons pas poids, taille, âge, calories ou dates à ces modèles.">We do not sell this data. We share it with the processors listed below so the feature can run, and only after in-app Allow. Model providers process inputs under their own policies. Some providers may use inputs to improve their models. We do not train our own models on your meals. We do not send weight, height, age, calories or dates to those models.</p>
+      <p data-en="Barcode lookups for packaged foods use Open Food Facts (and similar public catalogs). That path does not send a meal photo to the AI models." data-fr="Les codes-barres des produits emballés passent par Open Food Facts (et catalogues publics similaires). Ce chemin n’envoie pas de photo de repas aux modèles d’IA.">Barcode lookups for packaged foods use Open Food Facts (and similar public catalogs). That path does not send a meal photo to the AI models.</p>
+
+      <h2 id="plan"><span class="num">04</span><span data-en="Your plan" data-fr="Votre plan">Your plan</span></h2>
+      <p data-en="Calorie and macro targets are calculated on your phone from the body figures you entered. If you allow plan copy, qualitative onboarding answers (diet style, obstacles, what already works) may be sent through OpenRouter to Google and OpenAI so the app can write the words of the plan. The model is never shown a number and is instructed never to write one. The phone substitutes the real figures locally." data-fr="Les objectifs calories et macros sont calculés sur le téléphone à partir de vos mesures. Si vous autorisez le texte du plan, des réponses qualitatives (alimentation, obstacles, ce qui marche déjà) peuvent passer par OpenRouter vers Google et OpenAI pour rédiger le plan. Le modèle ne voit aucun chiffre et ne doit pas en écrire. Le téléphone substitue les vrais chiffres localement.">Calorie and macro targets are calculated on your phone from the body figures you entered. If you allow plan copy, qualitative onboarding answers (diet style, obstacles, what already works) may be sent through OpenRouter to Google and OpenAI so the app can write the words of the plan. The model is never shown a number and is instructed never to write one. The phone substitutes the real figures locally.</p>
+      <p data-en="Qualitative plan sentences may be stored in a shared, de-identified cache so the same wording can be reused. That cache is not keyed to your account. Deleting your account does not wipe every cached sentence." data-fr="Les phrases qualitatives du plan peuvent être stockées dans un cache partagé et dé-identifié, pour réutiliser le même texte. Ce cache n’est pas lié à votre compte. Supprimer le compte n’efface pas chaque phrase en cache.">Qualitative plan sentences may be stored in a shared, de-identified cache so the same wording can be reused. That cache is not keyed to your account. Deleting your account does not wipe every cached sentence.</p>
+
+      <h2 id="health"><span class="num">05</span><span data-en="Health data" data-fr="Données de santé">Health data</span></h2>
+      <p data-en="Optional, and off until you connect it." data-fr="Optionnel, et inactif tant que vous ne le connectez pas.">Optional, and off until you connect it.</p>
+      <div class="stack">
+        <div class="tile"><div class="t">Apple Health · iOS</div><p class="d" data-en="If you connect it: we can read weight and active calories, and write logged nutrition back to HealthKit. You choose the types. You can revoke in Apple Health." data-fr="Si vous le connectez : lecture du poids et des calories actives, écriture de la nutrition dans HealthKit. Vous choisissez les types. Révocable dans Apple Santé.">If you connect it: we can read weight and active calories, and write logged nutrition back to HealthKit. You choose the types. You can revoke in Apple Health.</p></div>
+        <div class="tile"><div class="t">Health Connect · Android</div><p class="d" data-en="The Android analogue of Apple Health. We do not use Google Fit. Reads (today’s steps, active calories, latest weight) stay on the device and are not uploaded to PikCal servers or sent to analytics. If “Sync meals” is on, we write a nutrition record for each saved meal. Disconnect and we stop writing." data-fr="L’équivalent Android d’Apple Santé. Pas Google Fit. Les lectures (pas, calories actives, dernier poids) restent sur l’appareil, non envoyées à nos serveurs ni aux analyses. Si « Sync meals » est actif, nous écrivons un enregistrement nutrition pour chaque repas. Déconnecter arrête l’écriture.">The Android analogue of Apple Health. We do not use Google Fit. Reads (today’s steps, active calories, latest weight) stay on the device and are not uploaded to PikCal servers or sent to analytics. If “Sync meals” is on, we write a nutrition record for each saved meal. Disconnect and we stop writing.</p></div>
+      </div>
+      <p data-en="Health numbers used to compute your plan stay on the phone. They are not sent to OpenRouter, Google or OpenAI." data-fr="Les chiffres santé utilisés pour calculer le plan restent sur le téléphone. Ils ne partent pas vers OpenRouter, Google ou OpenAI.">Health numbers used to compute your plan stay on the phone. They are not sent to OpenRouter, Google or OpenAI.</p>
+
+      <h2 id="analytics"><span class="num">06</span><span data-en="Analytics &amp; crashes" data-fr="Analyses et crashs">Analytics &amp; crashes</span></h2>
+      <div class="stack">
+        <div class="tile"><div class="t">PostHog</div><p class="d" data-en="Product events (meal logged, edited, deleted, screens, app open). An anonymous id, then your PikCal user id after sign-in. No email, no meal photo, no ingredient list. Session replay is off. Opt out in Settings → usage statistics." data-fr="Événements produit (repas enregistré, modifié, supprimé, écrans, ouverture). Un id anonyme, puis l’id PikCal après connexion. Pas d’e-mail, pas de photo, pas d’ingrédients. Pas de session replay. Désactivation dans Réglages.">Product events (meal logged, edited, deleted, screens, app open). An anonymous id, then your PikCal user id after sign-in. No email, no meal photo, no ingredient list. Session replay is off. Opt out in Settings → usage statistics.</p></div>
+        <div class="tile"><div class="t">Firebase Crashlytics</div><p class="d" data-en="When the app crashes: stack trace, app state, device model, OS, locale. We do not put meal photos or email in crash reports. On Android we never attach your user id to Crashlytics." data-fr="En cas de crash : pile d’appel, état de l’app, modèle, OS, langue. Pas de photos de repas ni d’e-mail. Sur Android, l’id utilisateur n’est jamais attaché à Crashlytics.">When the app crashes: stack trace, app state, device model, OS, locale. We do not put meal photos or email in crash reports. On Android we never attach your user id to Crashlytics.</p></div>
+      </div>
+
+      <h2 id="notify"><span class="num">07</span><span data-en="Notifications" data-fr="Notifications">Notifications</span></h2>
+      <p data-en="Meal reminders are scheduled on your device. They do not need our servers." data-fr="Les rappels de repas sont programmés sur l’appareil. Ils n’ont pas besoin de nos serveurs.">Meal reminders are scheduled on your device. They do not need our servers.</p>
+      <p data-en="On iOS, optional remote notifications (tips, product updates) may use Firebase Cloud Messaging. We then store a device token — not your email — and delete it when you turn notifications off or delete the account. Android does not currently send remote push." data-fr="Sur iOS, des notifications distantes optionnelles (conseils, nouveautés) peuvent passer par Firebase Cloud Messaging. Nous stockons alors un jeton d’appareil — pas votre e-mail — et le supprimons si vous désactivez les notifications ou le compte. Android n’envoie pas de push distant pour l’instant.">On iOS, optional remote notifications (tips, product updates) may use Firebase Cloud Messaging. We then store a device token — not your email — and delete it when you turn notifications off or delete the account. Android does not currently send remote push.</p>
+
+      <h2 id="processors"><span class="num">08</span><span data-en="Who processes data" data-fr="Qui traite les données">Who processes data</span></h2>
+      <p data-en="Trusted processors. Each link is their privacy policy." data-fr="Prestataires de confiance. Chaque lien mène à leur politique.">Trusted processors. Each link is their privacy policy.</p>
+      <div class="processors">
+        <a href="https://supabase.com/privacy" target="_blank" rel="noopener"><strong>Supabase</strong><span data-en="Database, auth, storage" data-fr="Base, auth, stockage">Database, auth, storage</span></a>
+        <a href="https://openrouter.ai/privacy" target="_blank" rel="noopener"><strong>OpenRouter</strong><span data-en="AI routing" data-fr="Routage IA">AI routing</span></a>
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener"><strong>Google</strong><span data-en="Sign-In, Gemini, Play" data-fr="Connexion, Gemini, Play">Sign-In, Gemini, Play</span></a>
+        <a href="https://openai.com/privacy" target="_blank" rel="noopener"><strong>OpenAI</strong><span data-en="Plan copy models" data-fr="Modèles du plan">Plan copy models</span></a>
+        <a href="https://www.apple.com/privacy/" target="_blank" rel="noopener"><strong>Apple</strong><span data-en="Sign-In, Health, billing" data-fr="Connexion, Santé, facturation">Sign-In, Health, billing</span></a>
+        <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener"><strong>RevenueCat</strong><span data-en="Subscriptions" data-fr="Abonnements">Subscriptions</span></a>
+        <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener"><strong>Firebase</strong><span data-en="Crash reports, iOS push" data-fr="Crashs, push iOS">Crash reports, iOS push</span></a>
+        <a href="https://posthog.com/privacy" target="_blank" rel="noopener"><strong>PostHog</strong><span data-en="Product analytics" data-fr="Analyses produit">Product analytics</span></a>
+        <a href="https://world.openfoodfacts.org/privacy" target="_blank" rel="noopener"><strong>Open Food Facts</strong><span data-en="Barcode catalog" data-fr="Catalogue codes-barres">Barcode catalog</span></a>
+      </div>
+
+      <h2 id="rights"><span class="num">09</span><span data-en="Your rights" data-fr="Vos droits">Your rights</span></h2>
+      <div class="stack">
+        <div class="tile"><div class="t" data-en="Access" data-fr="Accès">Access</div><p class="d" data-en="Meals, goals and profile live in the app." data-fr="Repas, objectifs et profil sont dans l’app.">Meals, goals and profile live in the app.</p></div>
+        <div class="tile"><div class="t" data-en="Edit" data-fr="Modifier">Edit</div><p class="d" data-en="Correct any meal, portion or goal at any time." data-fr="Corrigez un repas, une portion ou un objectif à tout moment.">Correct any meal, portion or goal at any time.</p></div>
+        <div class="tile"><div class="t" data-en="Export" data-fr="Exporter">Export</div><p class="d" data-en="Settings → Export my data. A JSON file of what the app holds locally." data-fr="Réglages → Exporter mes données. Un fichier JSON de ce que l’app détient en local.">Settings → Export my data. A JSON file of what the app holds locally.</p></div>
+        <div class="tile"><div class="t" data-en="Delete" data-fr="Supprimer">Delete</div><p class="d" data-en="Settings → Delete account. Permanent." data-fr="Réglages → Supprimer le compte. Définitif.">Settings → Delete account. Permanent.</p></div>
+      </div>
+
+      <h2 id="gdpr"><span class="num">10</span><span data-en="For European users (GDPR)" data-fr="Pour l’Europe (RGPD)">For European users (GDPR)</span></h2>
+      <div class="stack">
+        <div class="tile"><div class="t" data-en="Legal bases" data-fr="Bases légales">Legal bases</div><p class="d" data-en="Contract, for the core tracker. Consent, for AI analysis, plan copy, analytics and optional notifications. Legitimate interests, for security and fraud prevention." data-fr="Contrat pour le suivi de base. Consentement pour l’IA, le texte du plan, les analyses et les notifications optionnelles. Intérêt légitime pour la sécurité.">Contract, for the core tracker. Consent, for AI analysis, plan copy, analytics and optional notifications. Legitimate interests, for security and fraud prevention.</p></div>
+        <div class="tile"><div class="t" data-en="Transfers" data-fr="Transferts">Transfers</div><p class="d" data-en="Some processors (OpenRouter, Google, OpenAI, PostHog, Firebase) may process data in the United States. Transfers rely on the EU–US Data Privacy Framework where applicable, and Standard Contractual Clauses." data-fr="Certains prestataires (OpenRouter, Google, OpenAI, PostHog, Firebase) peuvent traiter aux États-Unis. Transferts via le Data Privacy Framework UE–US le cas échéant, et clauses contractuelles types.">Some processors (OpenRouter, Google, OpenAI, PostHog, Firebase) may process data in the United States. Transfers rely on the EU–US Data Privacy Framework where applicable, and Standard Contractual Clauses.</p></div>
+        <div class="tile"><div class="t" data-en="Retention" data-fr="Conservation">Retention</div><p class="d" data-en="Account data while the account is open. Crash logs about 90 days. Analytics about 12 months. After deletion, personal data is removed from active systems promptly, and from backups within 30 days." data-fr="Données de compte tant que le compte existe. Logs de crash ~90 jours. Analyses ~12 mois. Après suppression, les données personnelles quittent les systèmes actifs rapidement, et les sauvegardes sous 30 jours.">Account data while the account is open. Crash logs about 90 days. Analytics about 12 months. After deletion, personal data is removed from active systems promptly, and from backups within 30 days.</p></div>
+        <div class="tile"><div class="t" data-en="Requests" data-fr="Demandes">Requests</div><p class="d" data-en="Access, rectification, erasure, portability, restriction, objection, withdraw consent: support@pikcal.app. You may also lodge a complaint with your local authority." data-fr="Accès, rectification, effacement, portabilité, limitation, opposition, retrait du consentement : support@pikcal.app. Vous pouvez aussi saisir votre autorité locale.">Access, rectification, erasure, portability, restriction, objection, withdraw consent: support@pikcal.app. You may also lodge a complaint with your local authority.</p></div>
+      </div>
+
+      <h2 id="delete"><span class="num">11</span><span data-en="Account deletion" data-fr="Suppression du compte">Account deletion</span></h2>
+      <p data-en="Settings → Delete account. We permanently remove:" data-fr="Réglages → Supprimer le compte. Nous retirons définitivement :">Settings → Delete account. We permanently remove:</p>
+      <ol class="steps">
+        <li data-en="Profile and email" data-fr="Profil et e-mail">Profile and email</li>
+        <li data-en="Meal scans, food entries and stored photos" data-fr="Scans, repas et photos stockées">Meal scans, food entries and stored photos</li>
+        <li data-en="Goals, preferences and onboarding answers tied to you" data-fr="Objectifs, préférences et réponses d’onboarding liées à vous">Goals, preferences and onboarding answers tied to you</li>
+        <li data-en="Push tokens and analytics associations" data-fr="Jetons push et associations d’analyse">Push tokens and analytics associations</li>
+        <li data-en="The authentication account. Apple Sign-In tokens are revoked." data-fr="Le compte d’authentification. Les jetons Apple Sign-In sont révoqués.">The authentication account. Apple Sign-In tokens are revoked.</li>
+      </ol>
+      <p data-en="Store purchases remain with Apple or Google — we cannot erase a store receipt. The de-identified plan-copy cache is not wiped per user. Deletion is irreversible." data-fr="Les achats restent chez Apple ou Google — nous ne pouvons pas effacer un reçu store. Le cache dé-identifié du plan n’est pas vidé par utilisateur. La suppression est irréversible.">Store purchases remain with Apple or Google — we cannot erase a store receipt. The de-identified plan-copy cache is not wiped per user. Deletion is irreversible.</p>
+
+      <h2 id="children"><span class="num">12</span><span data-en="Children" data-fr="Enfants">Children</span></h2>
+      <p data-en="PikCal is for people 13 and older. We do not knowingly collect data from children under 13. If you think we have, write to support@pikcal.app and we will delete it." data-fr="PikCal s’adresse aux 13 ans et plus. Nous ne collectons pas sciemment de données d’enfants de moins de 13 ans. Si vous pensez le contraire, écrivez à support@pikcal.app.">PikCal is for people 13 and older. We do not knowingly collect data from children under 13. If you think we have, write to support@pikcal.app and we will delete it.</p>
+
+      <h2 id="updates"><span class="num">13</span><span data-en="Updates" data-fr="Mises à jour">Updates</span></h2>
+      <p data-en="We may revise this policy as the product changes. Material changes will be flagged in the app. The date at the top is the latest revision." data-fr="Nous pouvons réviser cette politique. Les changements importants seront signalés dans l’app. La date en haut est la dernière révision.">We may revise this policy as the product changes. Material changes will be flagged in the app. The date at the top is the latest revision.</p>
+
+      <div class="cta-block">
+        <div>
+          <h2 data-en="Questions?" data-fr="Des questions ?">Questions?</h2>
+          <p data-en="Privacy, deletion, a processor — write to us." data-fr="Confidentialité, suppression, un prestataire — écrivez-nous.">Privacy, deletion, a processor — write to us.</p>
         </div>
-
-        <div class="tl-dr">
-            <h3>The Short Version</h3>
-            <ul>
-                <li><span class="check">&#10003;</span> We only collect data needed to track your nutrition</li>
-                <li><span class="check">&#10003;</span> Your meal photos are analyzed by AI, then stored securely</li>
-                <li><span class="check">&#10003;</span> We never sell your personal information</li>
-                <li><span class="check">&#10003;</span> You can delete all your data anytime from the app</li>
-            </ul>
-        </div>
-
-        <section>
-            <h3><span class="icon">&#128100;</span> What We Collect</h3>
-            <p>We collect only what's necessary to provide you with accurate nutrition tracking:</p>
-
-            <div class="data-card">
-                <div class="data-card-title">Account Information</div>
-                <div class="data-card-content">Email address from Apple or Google Sign-In to identify your account</div>
-            </div>
-
-            <div class="data-card">
-                <div class="data-card-title">Body Metrics</div>
-                <div class="data-card-content">Height, weight, age, and gender to calculate your personalized calorie and macro goals</div>
-            </div>
-
-            <div class="data-card">
-                <div class="data-card-title">Fitness Profile</div>
-                <div class="data-card-content">Activity level, weight goals, and dietary preferences to tailor recommendations</div>
-            </div>
-
-            <div class="data-card">
-                <div class="data-card-title">Meal Data</div>
-                <div class="data-card-content">Photos you scan, identified foods, portions, and nutritional values</div>
-            </div>
-
-            <div class="data-card">
-                <div class="data-card-title">Preferences</div>
-                <div class="data-card-content">Language, measurement units, and portion display settings</div>
-            </div>
-        </section>
-
-        <section>
-            <h3><span class="icon">&#129302;</span> How AI Analyzes Your Meals</h3>
-            <p>When you snap a photo of your meal:</p>
-            <ol class="deletion-steps">
-                <li>Your photo is securely uploaded to our servers</li>
-                <li>AI (Google Gemini) identifies foods and estimates portions</li>
-                <li>Nutritional data is calculated and saved to your account</li>
-                <li>The original photo is stored so you can review your meals later</li>
-            </ol>
-            <p>AI analysis happens on secure cloud servers, not on your device. Your photos are never used to train AI models or shared with third parties.</p>
-        </section>
-
-        <section>
-            <h3><span class="icon">&#128274;</span> How We Protect Your Data</h3>
-            <p>Security isn't an afterthought - it's built into everything we do:</p>
-            <ul class="rights-list">
-                <li>
-                    <div class="right-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                        </svg>
-                    </div>
-                    <div class="right-content">
-                        <h4>Encrypted in Transit</h4>
-                        <p>All data is encrypted using HTTPS/TLS when moving between your device and our servers</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="right-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        </svg>
-                    </div>
-                    <div class="right-content">
-                        <h4>Secure Storage</h4>
-                        <p>Your data is stored on Supabase infrastructure with enterprise-grade security</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="right-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
-                        </svg>
-                    </div>
-                    <div class="right-content">
-                        <h4>Never Sold</h4>
-                        <p>We will never sell your personal information to advertisers or data brokers</p>
-                    </div>
-                </li>
-            </ul>
-        </section>
-
-        <section>
-            <h3><span class="icon">&#128279;</span> Third-Party Services</h3>
-            <p>We partner with trusted services to power PikCal:</p>
-            <div class="service-grid">
-                <a href="https://supabase.com/privacy" class="service-card" target="_blank">
-                    <div class="name">Supabase</div>
-                    <div class="purpose">Database & Auth</div>
-                </a>
-                <a href="https://www.revenuecat.com/privacy" class="service-card" target="_blank">
-                    <div class="name">RevenueCat</div>
-                    <div class="purpose">Subscriptions</div>
-                </a>
-                <a href="https://policies.google.com/privacy" class="service-card" target="_blank">
-                    <div class="name">Google</div>
-                    <div class="purpose">Sign-In & AI</div>
-                </a>
-                <a href="https://www.apple.com/privacy/" class="service-card" target="_blank">
-                    <div class="name">Apple</div>
-                    <div class="purpose">Sign-In</div>
-                </a>
-            </div>
-        </section>
-
-        <section>
-            <h3><span class="icon">&#128272;</span> Your Rights</h3>
-            <p>You're in control of your data:</p>
-            <ul class="rights-list">
-                <li>
-                    <div class="right-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                            <circle cx="12" cy="12" r="3"/>
-                        </svg>
-                    </div>
-                    <div class="right-content">
-                        <h4>Access Your Data</h4>
-                        <p>View all your meals, goals, and profile data directly in the app</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="right-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-                        </svg>
-                    </div>
-                    <div class="right-content">
-                        <h4>Edit Anytime</h4>
-                        <p>Update your profile, correct meal entries, or change your goals</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="right-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="3 6 5 6 21 6"/>
-                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-                        </svg>
-                    </div>
-                    <div class="right-content">
-                        <h4>Delete Everything</h4>
-                        <p>Go to Settings &gt; Delete Account to permanently erase all your data</p>
-                    </div>
-                </li>
-            </ul>
-        </section>
-
-        <section>
-            <h3><span class="icon">&#128465;</span> Account Deletion</h3>
-            <p>When you delete your account, we permanently remove:</p>
-            <ol class="deletion-steps">
-                <li>Your profile and email address</li>
-                <li>All meal scans and food entries</li>
-                <li>Your photos from our storage</li>
-                <li>Goals, preferences, and onboarding data</li>
-                <li>Subscription records (purchases remain with Apple)</li>
-                <li>Your authentication account</li>
-            </ol>
-            <p>For Apple Sign-In users, we also revoke access tokens with Apple. Deletion is immediate and irreversible.</p>
-        </section>
-
-        <section>
-            <h3><span class="icon">&#128118;</span> Children's Privacy</h3>
-            <p>PikCal is designed for users 13 and older. We don't knowingly collect data from children under 13. If you believe a child has provided us with personal information, please contact us immediately.</p>
-        </section>
-
-        <section>
-            <h3><span class="icon">&#128221;</span> Policy Updates</h3>
-            <p>We may update this policy as PikCal evolves. Significant changes will be communicated through the app. The "Updated" date at the top reflects the latest revision.</p>
-        </section>
-
-        <div class="contact-card">
-            <h3>Questions?</h3>
-            <p>We're here to help with any privacy concerns</p>
-            <a href="mailto:support@pikcal.app">Contact Support</a>
-        </div>
-    </div>
-
-    <div class="footer">
-        <p>&copy; 2025 PikCal. All rights reserved.</p>
-        <p><a href="terms">Terms of Service</a></p>
-    </div>
+        <a class="btn" href="mailto:support@pikcal.app">support@pikcal.app <i aria-hidden="true">↗</i></a>
+      </div>
+    </article>
+  </main>
+  <script src="legal.js"></script>
 </body>
 </html>

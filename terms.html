@@ -1,623 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service - PikCal</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --ds-black: #000000;
-            --ds-white: #FFFFFF;
-            --ds-gray: #9CA3AF;
-            --ds-light-gray: #F5F5F5;
-            --ds-accent: #E8A87C;
-            --ds-accent-light: #FDF2E9;
-            --ds-success: #10B981;
-            --ds-danger: #E57373;
-            --ds-warning: #F59E0B;
-            --spacing-xs: 4px;
-            --spacing-sm: 8px;
-            --spacing-md: 16px;
-            --spacing-lg: 24px;
-            --spacing-xl: 32px;
-            --spacing-xxl: 48px;
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 24px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--ds-white);
-            color: var(--ds-black);
-            line-height: 1.6;
-        }
-
-        .header {
-            background: var(--ds-white);
-            padding: var(--spacing-xl) var(--spacing-lg);
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0,0,0,0.08);
-        }
-
-        .header-content {
-            max-width: 680px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--spacing-md);
-        }
-
-        .back-link {
-            position: absolute;
-            left: var(--spacing-lg);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            color: var(--ds-gray);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .back-link:hover {
-            color: var(--ds-black);
-        }
-
-        .logo-small {
-            width: 36px;
-            height: 36px;
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-        }
-
-        .logo-small img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .header h1 {
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        .container {
-            max-width: 680px;
-            margin: 0 auto;
-            padding: var(--spacing-xl) var(--spacing-lg);
-        }
-
-        .hero {
-            text-align: center;
-            margin-bottom: var(--spacing-xxl);
-            padding: var(--spacing-xxl) 0;
-        }
-
-        .hero-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--ds-light-gray);
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto var(--spacing-lg);
-        }
-
-        .hero-icon svg {
-            width: 32px;
-            height: 32px;
-            color: var(--ds-black);
-        }
-
-        .hero h2 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .hero .subtitle {
-            font-size: 16px;
-            color: var(--ds-gray);
-        }
-
-        .updated {
-            display: inline-block;
-            background: var(--ds-accent-light);
-            color: var(--ds-accent);
-            font-size: 12px;
-            font-weight: 500;
-            padding: var(--spacing-xs) var(--spacing-md);
-            border-radius: 20px;
-            margin-top: var(--spacing-md);
-        }
-
-        .tl-dr {
-            background: var(--ds-light-gray);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-lg);
-            margin-bottom: var(--spacing-xxl);
-        }
-
-        .tl-dr h3 {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--ds-gray);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .tl-dr ul {
-            list-style: none;
-        }
-
-        .tl-dr li {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-sm);
-            font-size: 15px;
-        }
-
-        .tl-dr li:last-child {
-            margin-bottom: 0;
-        }
-
-        .tl-dr .bullet {
-            color: var(--ds-black);
-            font-weight: 600;
-            flex-shrink: 0;
-        }
-
-        section {
-            margin-bottom: var(--spacing-xxl);
-        }
-
-        h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: var(--spacing-md);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-        }
-
-        h3 .icon {
-            width: 28px;
-            height: 28px;
-            background: var(--ds-light-gray);
-            border-radius: var(--radius-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-
-        p {
-            color: var(--ds-gray);
-            margin-bottom: var(--spacing-md);
-            font-size: 15px;
-        }
-
-        .info-card {
-            background: var(--ds-light-gray);
-            border-radius: var(--radius-md);
-            padding: var(--spacing-md);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .info-card.warning {
-            background: #FEF3C7;
-            border-left: 4px solid var(--ds-warning);
-        }
-
-        .info-card.danger {
-            background: #FEE2E2;
-            border-left: 4px solid var(--ds-danger);
-        }
-
-        .info-card-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--ds-black);
-            margin-bottom: var(--spacing-xs);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-        }
-
-        .info-card-content {
-            font-size: 13px;
-            color: var(--ds-gray);
-        }
-
-        .feature-list {
-            list-style: none;
-        }
-
-        .feature-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--spacing-md);
-            padding: var(--spacing-md);
-            background: var(--ds-light-gray);
-            border-radius: var(--radius-md);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .feature-list .feature-icon {
-            width: 36px;
-            height: 36px;
-            background: var(--ds-black);
-            border-radius: var(--radius-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 16px;
-        }
-
-        .feature-list .feature-content h4 {
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .feature-list .feature-content p {
-            font-size: 13px;
-            margin: 0;
-        }
-
-        .plan-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .plan-card {
-            background: var(--ds-light-gray);
-            border-radius: var(--radius-md);
-            padding: var(--spacing-lg);
-            text-align: center;
-        }
-
-        .plan-card.premium {
-            background: var(--ds-black);
-            color: var(--ds-white);
-        }
-
-        .plan-card h4 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .plan-card.premium h4 {
-            color: var(--ds-accent);
-        }
-
-        .plan-card ul {
-            list-style: none;
-            font-size: 13px;
-            text-align: left;
-        }
-
-        .plan-card li {
-            margin-bottom: var(--spacing-xs);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-        }
-
-        .plan-card .check {
-            color: var(--ds-success);
-        }
-
-        .plan-card.premium li {
-            color: rgba(255,255,255,0.8);
-        }
-
-        .dont-list {
-            list-style: none;
-        }
-
-        .dont-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-sm);
-            font-size: 14px;
-            color: var(--ds-gray);
-        }
-
-        .dont-list .x {
-            color: var(--ds-danger);
-            font-weight: 600;
-            flex-shrink: 0;
-        }
-
-        .contact-card {
-            background: var(--ds-black);
-            color: var(--ds-white);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-xl);
-            text-align: center;
-        }
-
-        .contact-card h3 {
-            color: var(--ds-white);
-            justify-content: center;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .contact-card p {
-            color: rgba(255,255,255,0.7);
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .contact-card a {
-            display: inline-block;
-            background: var(--ds-white);
-            color: var(--ds-black);
-            padding: var(--spacing-md) var(--spacing-xl);
-            border-radius: var(--radius-md);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            transition: transform 0.2s;
-        }
-
-        .contact-card a:hover {
-            transform: scale(1.02);
-        }
-
-        .footer {
-            text-align: center;
-            padding: var(--spacing-xxl) var(--spacing-lg);
-            color: var(--ds-gray);
-            font-size: 13px;
-        }
-
-        .footer a {
-            color: var(--ds-accent);
-            text-decoration: none;
-        }
-
-        @media (max-width: 600px) {
-            .back-link {
-                position: static;
-                margin-bottom: var(--spacing-md);
-            }
-
-            .header-content {
-                flex-direction: column;
-            }
-
-            .plan-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms of Use · PikCal</title>
+  <meta name="description" content="Terms for using PikCal on iPhone and Android. Nutrition estimates, subscriptions, and what we ask of you.">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="theme.css">
 </head>
 <body>
-    <div class="header">
-        <a href="./" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M15 18l-6-6 6-6"/>
-            </svg>
-            Back
-        </a>
-        <div class="header-content">
-            <div class="logo-small">
-                <img src="logo.png" alt="PikCal">
-            </div>
-            <h1>PikCal</h1>
+  <main id="content" class="page legal-grid">
+    <aside class="lede reveal">
+      <div class="kicker"><span class="dots" aria-hidden="true"><span></span><span></span><span></span></span> <span data-en="Legal · Terms" data-fr="Légal · Conditions">Legal · Terms</span></div>
+      <h1 data-en="Simple rules<br>for a precise<br>tool." data-fr="Règles simples<br>pour un outil<br>précis.">Simple rules<br>for a precise<br>tool.</h1>
+      <p class="subhead" data-en="PikCal estimates nutrition from a photo, a label, a barcode or a sentence. It is not a clinician." data-fr="PikCal estime la nutrition à partir d’une photo, d’une étiquette, d’un code-barres ou d’une phrase. Ce n’est pas un clinicien.">PikCal estimates nutrition from a photo, a label, a barcode or a sentence. It is not a clinician.</p>
+      <div class="meta-row">
+        <span class="pill" data-en="Updated 7 September 2026" data-fr="Mis à jour le 7 septembre 2026">Updated 7 September 2026</span>
+        <a class="pill" href="privacy.html" data-en="Privacy policy" data-fr="Politique de confidentialité">Privacy policy</a>
+      </div>
+      <nav class="toc" aria-label="On this page">
+        <a href="#basics" data-en="The basics" data-fr="L’essentiel">The basics</a>
+        <a href="#service" data-en="The service" data-fr="Le service">The service</a>
+        <a href="#account" data-en="Your account" data-fr="Votre compte">Your account</a>
+        <a href="#plans" data-en="Free and Pro" data-fr="Gratuit et Pro">Free and Pro</a>
+        <a href="#health" data-en="Health disclaimer" data-fr="Avertissement santé">Health disclaimer</a>
+        <a href="#conduct" data-en="Don’t" data-fr="À ne pas faire">Don’t</a>
+        <a href="#ip" data-en="Intellectual property" data-fr="Propriété intellectuelle">Intellectual property</a>
+        <a href="#legal" data-en="Liability &amp; law" data-fr="Responsabilité et droit">Liability &amp; law</a>
+        <a href="#changes" data-en="Changes" data-fr="Changements">Changes</a>
+      </nav>
+    </aside>
+
+    <article class="prose reveal">
+      <div class="bezel" id="basics">
+        <div class="inner">
+          <h2 style="margin-top:0"><span class="num">01</span><span data-en="The basics" data-fr="L’essentiel">The basics</span></h2>
+          <ol class="steps" style="margin-top:16px">
+            <li data-en="PikCal helps you log food with a camera, a barcode, a label or a short description." data-fr="PikCal aide à enregistrer un repas avec une caméra, un code-barres, une étiquette ou une courte description.">PikCal helps you log food with a camera, a barcode, a label or a short description.</li>
+            <li data-en="Numbers are estimates, not medical advice and not a medical device." data-fr="Les chiffres sont des estimations, pas un avis médical, pas un dispositif médical.">Numbers are estimates, not medical advice and not a medical device.</li>
+            <li data-en="On iPhone, the free tier includes a small daily AI scan allowance. On Android, photo scan is a Pro feature; barcode and typed meals remain available." data-fr="Sur iPhone, l’offre gratuite inclut un petit quota de scans IA par jour. Sur Android, le scan photo est une fonction Pro ; code-barres et saisie restent disponibles.">On iPhone, the free tier includes a small daily AI scan allowance. On Android, photo scan is a Pro feature; barcode and typed meals remain available.</li>
+            <li data-en="Subscriptions are billed by Apple or Google, not by us directly." data-fr="Les abonnements sont facturés par Apple ou Google, pas par nous directement.">Subscriptions are billed by Apple or Google, not by us directly.</li>
+            <li data-en="One person, one account. No abuse of the models." data-fr="Une personne, un compte. Pas d’abus des modèles.">One person, one account. No abuse of the models.</li>
+          </ol>
         </div>
-    </div>
+      </div>
 
-    <div class="container">
-        <div class="hero">
-            <div class="hero-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                    <polyline points="14 2 14 8 20 8"/>
-                    <line x1="16" y1="13" x2="8" y2="13"/>
-                    <line x1="16" y1="17" x2="8" y2="17"/>
-                </svg>
-            </div>
-            <h2>Terms of Service</h2>
-            <p class="subtitle">Simple rules for using PikCal</p>
-            <span class="updated">Updated December 21, 2025</span>
+      <h2 id="service"><span class="num">02</span><span data-en="What PikCal does" data-fr="Ce que fait PikCal">What PikCal does</span></h2>
+      <p data-en="PikCal is a nutrition tracker for iOS and Android. You photograph a plate, scan a barcode, photograph a nutrition table, or type a sentence. The app returns estimated calories and macros — protein, carbs, fat, and often fiber — against a plan built from your body, goal and pace." data-fr="PikCal est un suivi nutritionnel pour iOS et Android. Vous photographiez une assiette, scannez un code-barres, photographiez un tableau nutritionnel, ou tapez une phrase. L’app renvoie calories et macros estimées — protéines, glucides, lipides, souvent fibres — face à un plan calculé à partir de votre corps, objectif et rythme.">PikCal is a nutrition tracker for iOS and Android. You photograph a plate, scan a barcode, photograph a nutrition table, or type a sentence. The app returns estimated calories and macros — protein, carbs, fat, and often fiber — against a plan built from your body, goal and pace.</p>
+      <div class="stack">
+        <div class="tile"><div class="t" data-en="Snap" data-fr="Photo">Snap</div><p class="d" data-en="A plate, a pack, a label." data-fr="Une assiette, un paquet, une étiquette.">A plate, a pack, a label.</p></div>
+        <div class="tile"><div class="t" data-en="Track" data-fr="Suivre">Track</div><p class="d" data-en="Remaining calories and macros on Today. History with photos." data-fr="Calories et macros restantes sur Aujourd’hui. Historique avec photos.">Remaining calories and macros on Today. History with photos.</p></div>
+        <div class="tile"><div class="t" data-en="Correct" data-fr="Corriger">Correct</div><p class="d" data-en="Edit foods, portions and values whenever the estimate is off." data-fr="Modifiez aliments, portions et valeurs dès que l’estimation dévie.">Edit foods, portions and values whenever the estimate is off.</p></div>
+      </div>
+      <p data-en="By using the app you also accept the <a href='privacy.html'>Privacy Policy</a>. On iOS, auto-renewable subscriptions are additionally governed by Apple’s standard EULA (Guideline 3.1.2). On Android, Google Play’s billing terms apply." data-fr="En utilisant l’app vous acceptez aussi la <a href='privacy.html'>politique de confidentialité</a>. Sur iOS, les abonnements à renouvellement auto sont aussi régis par le CLUF standard Apple (3.1.2). Sur Android, les conditions de facturation Google Play s’appliquent.">By using the app you also accept the <a href="privacy.html">Privacy Policy</a>. On iOS, auto-renewable subscriptions are additionally governed by Apple’s standard EULA (Guideline 3.1.2). On Android, Google Play’s billing terms apply.</p>
+
+      <h2 id="account"><span class="num">03</span><span data-en="Your account" data-fr="Votre compte">Your account</span></h2>
+      <div class="stack">
+        <div class="tile"><div class="t" data-en="One account" data-fr="Un compte">One account</div><p class="d" data-en="Sign in with Apple or Google. One person, one account. Creating extras to dodge limits is not allowed." data-fr="Connexion Apple ou Google. Une personne, un compte. Créer des comptes pour contourner les limites n’est pas permis.">Sign in with Apple or Google. One person, one account. Creating extras to dodge limits is not allowed.</p></div>
+        <div class="tile"><div class="t" data-en="You keep it" data-fr="Vous le gardez">You keep it</div><p class="d" data-en="Don’t share the login. You are responsible for activity on the account." data-fr="Ne partagez pas la connexion. Vous êtes responsable de l’activité du compte.">Don’t share the login. You are responsible for activity on the account.</p></div>
+        <div class="tile"><div class="t" data-en="Tell the truth at setup" data-fr="Dites vrai à l’installation">Tell the truth at setup</div><p class="d" data-en="Goals are calculated from the body figures you enter. Invented numbers produce an invented plan." data-fr="Les objectifs sont calculés à partir des mesures que vous entrez. Des chiffres inventés donnent un plan inventé.">Goals are calculated from the body figures you enter. Invented numbers produce an invented plan.</p></div>
+      </div>
+
+      <h2 id="plans"><span class="num">04</span><span data-en="Free and Pro" data-fr="Gratuit et Pro">Free and Pro</span></h2>
+      <div class="plans">
+        <div class="plan">
+          <h3 data-en="Free" data-fr="Gratuit">Free</h3>
+          <ul>
+            <li data-en="iOS — a daily allowance of AI scans (currently 3)" data-fr="iOS — un quota quotidien de scans IA (3 actuellement)">iOS — a daily allowance of AI scans (currently 3)</li>
+            <li data-en="Android — barcode, typed meals, 14 days of history" data-fr="Android — code-barres, saisie, 14 jours d’historique">Android — barcode, typed meals, 14 days of history</li>
+            <li data-en="Goals, Today, and meal corrections" data-fr="Objectifs, Aujourd’hui, et corrections">Goals, Today, and meal corrections</li>
+          </ul>
         </div>
-
-        <div class="tl-dr">
-            <h3>The Basics</h3>
-            <ul>
-                <li><span class="bullet">1.</span> PikCal helps you track nutrition through AI-powered photo scanning</li>
-                <li><span class="bullet">2.</span> Nutritional estimates are approximations, not medical advice</li>
-                <li><span class="bullet">3.</span> Premium unlocks unlimited scans; free users get 3 per day</li>
-                <li><span class="bullet">4.</span> Be respectful - one account per person, no abuse</li>
-            </ul>
+        <div class="plan pro">
+          <h3>Pro</h3>
+          <ul>
+            <li data-en="Unlimited photo scans" data-fr="Scans photo illimités">Unlimited photo scans</li>
+            <li data-en="Full history" data-fr="Historique complet">Full history</li>
+            <li data-en="Saved foods, insights, and what ships next" data-fr="Aliments enregistrés, analyses, et la suite">Saved foods, insights, and what ships next</li>
+          </ul>
         </div>
+      </div>
+      <div class="stack" style="margin-top:12px">
+        <div class="tile"><div class="t" data-en="Billing" data-fr="Facturation">Billing</div><p class="d" data-en="Pro is billed through the App Store or Google Play. Subscriptions renew unless you cancel at least 24 hours before the period ends. Manage in Apple ID → Subscriptions, or Play Store → Payments &amp; subscriptions." data-fr="Pro est facturé via l’App Store ou Google Play. L’abonnement se renouvelle sauf annulation au moins 24 h avant la fin de période. Gérez dans Identifiant Apple → Abonnements, ou Play Store → Paiements et abonnements.">Pro is billed through the App Store or Google Play. Subscriptions renew unless you cancel at least 24 hours before the period ends. Manage in Apple ID → Subscriptions, or Play Store → Payments &amp; subscriptions.</p></div>
+        <div class="tile"><div class="t" data-en="Trials" data-fr="Essais">Trials</div><p class="d" data-en="If a free trial is offered, the first payment is taken when the trial ends unless you cancel first. The paywall states the date." data-fr="Si un essai est proposé, le premier paiement a lieu à la fin de l’essai sauf annulation. Le paywall indique la date.">If a free trial is offered, the first payment is taken when the trial ends unless you cancel first. The paywall states the date.</p></div>
+        <div class="tile"><div class="t" data-en="Refunds" data-fr="Remboursements">Refunds</div><p class="d" data-en="Refunds are handled by Apple or Google under their policies. We cannot reverse a store charge ourselves. Apple: reportaproblem.apple.com. Google: Play subscriptions." data-fr="Les remboursements passent par Apple ou Google. Nous ne pouvons pas inverser un paiement store. Apple : reportaproblem.apple.com. Google : abonnements Play.">Refunds are handled by Apple or Google under their policies. We cannot reverse a store charge ourselves. Apple: reportaproblem.apple.com. Google: Play subscriptions.</p></div>
+      </div>
 
-        <section>
-            <h3><span class="icon">&#128248;</span> What PikCal Does</h3>
-            <p>PikCal is a nutrition tracking app that uses artificial intelligence to analyze photos of your meals and estimate their nutritional content.</p>
-
-            <ul class="feature-list">
-                <li>
-                    <div class="feature-icon">&#128247;</div>
-                    <div class="feature-content">
-                        <h4>Snap Your Meals</h4>
-                        <p>Take a photo of any food and our AI identifies ingredients and portions</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="feature-icon">&#128202;</div>
-                    <div class="feature-content">
-                        <h4>Track Your Progress</h4>
-                        <p>Monitor daily calories, protein, carbs, and fat against personalized goals</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="feature-icon">&#127919;</div>
-                    <div class="feature-content">
-                        <h4>Reach Your Goals</h4>
-                        <p>Whether losing weight, building muscle, or maintaining - we calculate your targets</p>
-                    </div>
-                </li>
-            </ul>
-        </section>
-
-        <section>
-            <h3><span class="icon">&#128100;</span> Your Account</h3>
-            <p>To use PikCal, you'll need to sign in with Apple or Google:</p>
-
-            <div class="info-card">
-                <div class="info-card-title">One Account Per Person</div>
-                <div class="info-card-content">Each person should maintain a single account. Creating multiple accounts to bypass scan limits or for any other reason is not allowed.</div>
-            </div>
-
-            <div class="info-card">
-                <div class="info-card-title">Keep It Secure</div>
-                <div class="info-card-content">You're responsible for your account security. Don't share your login credentials with anyone.</div>
-            </div>
-
-            <div class="info-card">
-                <div class="info-card-title">Accurate Information</div>
-                <div class="info-card-content">Provide truthful body metrics during setup - this ensures your calorie and macro goals are calculated correctly.</div>
-            </div>
-        </section>
-
-        <section>
-            <h3><span class="icon">&#11088;</span> Free vs Premium</h3>
-
-            <div class="plan-grid">
-                <div class="plan-card">
-                    <h4>Free</h4>
-                    <ul>
-                        <li><span class="check">&#10003;</span> 3 scans per day</li>
-                        <li><span class="check">&#10003;</span> Basic tracking</li>
-                        <li><span class="check">&#10003;</span> Goal setting</li>
-                        <li><span class="check">&#10003;</span> Meal history</li>
-                    </ul>
-                </div>
-                <div class="plan-card premium">
-                    <h4>Premium</h4>
-                    <ul>
-                        <li><span class="check">&#10003;</span> Unlimited scans</li>
-                        <li><span class="check">&#10003;</span> Advanced analytics</li>
-                        <li><span class="check">&#10003;</span> Priority support</li>
-                        <li><span class="check">&#10003;</span> Future features</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="info-card">
-                <div class="info-card-title">Subscription Details</div>
-                <div class="info-card-content">Premium is billed through Apple. Subscriptions auto-renew unless cancelled at least 24 hours before the renewal date. Manage your subscription in Settings &gt; Apple ID &gt; Subscriptions.</div>
-            </div>
-
-            <div class="info-card">
-                <div class="info-card-title">Refunds</div>
-                <div class="info-card-content">Refund requests are handled by Apple according to their refund policy. Contact Apple Support for refund inquiries.</div>
-            </div>
-        </section>
-
-        <section>
-            <h3><span class="icon">&#9888;&#65039;</span> Health Disclaimer</h3>
-
-            <div class="info-card warning">
-                <div class="info-card-title">&#9888;&#65039; Not Medical Advice</div>
-                <div class="info-card-content">PikCal is a nutrition tracking tool, not a substitute for professional medical advice. AI-estimated nutritional values are approximations based on visual analysis.</div>
-            </div>
-
-            <p>Please understand:</p>
-            <ul class="dont-list">
-                <li><span class="x">&#8226;</span> Calorie and macro estimates may vary from actual values</li>
-                <li><span class="x">&#8226;</span> Consult a healthcare professional before making significant dietary changes</li>
-                <li><span class="x">&#8226;</span> Don't rely solely on this app for managing health conditions</li>
-                <li><span class="x">&#8226;</span> We're not responsible for health outcomes from using this app</li>
-            </ul>
-        </section>
-
-        <section>
-            <h3><span class="icon">&#128683;</span> Don't Do This</h3>
-            <p>To keep PikCal great for everyone, please don't:</p>
-
-            <ul class="dont-list">
-                <li><span class="x">&#10007;</span> Create multiple accounts or share your account</li>
-                <li><span class="x">&#10007;</span> Attempt to reverse-engineer, hack, or exploit the app</li>
-                <li><span class="x">&#10007;</span> Use automated tools or bots to access the service</li>
-                <li><span class="x">&#10007;</span> Upload inappropriate, harmful, or illegal content</li>
-                <li><span class="x">&#10007;</span> Abuse the AI scanning feature with non-food images</li>
-                <li><span class="x">&#10007;</span> Circumvent scan limits through any means</li>
-            </ul>
-
-            <div class="info-card danger">
-                <div class="info-card-title">&#128721; Account Termination</div>
-                <div class="info-card-content">We may suspend or terminate accounts that violate these terms, engage in abuse, or compromise the service for other users.</div>
-            </div>
-        </section>
-
-        <section>
-            <h3><span class="icon">&#128218;</span> Intellectual Property</h3>
-            <p>PikCal's design, code, AI models, and content are our intellectual property. You may not copy, modify, or distribute any part of our app.</p>
-            <p>Your content (meal photos, personal data) remains yours. We don't claim ownership of your data, but we need limited rights to provide the service (storing photos, processing with AI, etc.).</p>
-        </section>
-
-        <section>
-            <h3><span class="icon">&#9878;&#65039;</span> Legal Stuff</h3>
-
-            <div class="info-card">
-                <div class="info-card-title">Service Availability</div>
-                <div class="info-card-content">We strive for 99.9% uptime but can't guarantee uninterrupted service. Occasional maintenance or technical issues may occur.</div>
-            </div>
-
-            <div class="info-card">
-                <div class="info-card-title">Limitation of Liability</div>
-                <div class="info-card-content">To the maximum extent permitted by law, we're not liable for indirect, incidental, or consequential damages. Our total liability is limited to what you've paid for Premium in the past 12 months.</div>
-            </div>
-
-            <div class="info-card">
-                <div class="info-card-title">Governing Law</div>
-                <div class="info-card-content">These terms are governed by the laws of Canada. Any disputes will be resolved in Canadian courts.</div>
-            </div>
-        </section>
-
-        <section>
-            <h3><span class="icon">&#128221;</span> Changes to Terms</h3>
-            <p>We may update these terms as PikCal evolves. Continued use after changes means you accept the new terms. For significant changes, we'll notify you through the app.</p>
-        </section>
-
-        <div class="contact-card">
-            <h3>Questions?</h3>
-            <p>We're happy to clarify anything</p>
-            <a href="mailto:support@pikcal.app">Contact Support</a>
+      <h2 id="health"><span class="num">05</span><span data-en="Not medical advice" data-fr="Pas un avis médical">Not medical advice</span></h2>
+      <div class="bezel">
+        <div class="inner">
+          <p style="margin:0" data-en="PikCal is a tracking tool. It does not diagnose, treat, cure or prevent any condition. AI estimates can miss foods, misread portions, and sit 10–20% off even on a clear plate. Talk to a clinician before a significant diet change, and do not rely on the app alone to manage a health condition." data-fr="PikCal est un outil de suivi. Il ne diagnostique, ne traite, ne guérit ni ne prévient aucune pathologie. L’IA peut rater des aliments, mal lire les portions, et s’écarter de 10–20 % même sur une assiette nette. Parlez à un clinicien avant un changement alimentaire important, et ne gérez pas une pathologie avec l’app seule.">PikCal is a tracking tool. It does not diagnose, treat, cure or prevent any condition. AI estimates can miss foods, misread portions, and sit 10–20% off even on a clear plate. Talk to a clinician before a significant diet change, and do not rely on the app alone to manage a health condition.</p>
         </div>
-    </div>
+      </div>
+      <p data-en="Optional Apple Health and Health Connect connections follow the same rule: convenience, not care." data-fr="Les connexions optionnelles Apple Santé et Health Connect suivent la même règle : du confort, pas un soin.">Optional Apple Health and Health Connect connections follow the same rule: convenience, not care.</p>
 
-    <div class="footer">
-        <p>&copy; 2025 PikCal. All rights reserved.</p>
-        <p><a href="privacy">Privacy Policy</a></p>
-    </div>
+      <h2 id="conduct"><span class="num">06</span><span data-en="Don’t" data-fr="À ne pas faire">Don’t</span></h2>
+      <ul>
+        <li data-en="Create extra accounts or share one" data-fr="Créer des comptes en plus ou partager le vôtre">Create extra accounts or share one</li>
+        <li data-en="Reverse-engineer, scrape, or hit the API with bots" data-fr="Désosser, scraper, ou frapper l’API avec des robots">Reverse-engineer, scrape, or hit the API with bots</li>
+        <li data-en="Upload illegal, harmful, or sexual content of minors" data-fr="Envoyer du contenu illégal, nuisible, ou sexuel impliquant des mineurs">Upload illegal, harmful, or sexual content of minors</li>
+        <li data-en="Feed the scanner non-food images to burn quota" data-fr="Nourrir le scanner d’images hors nourriture pour brûler le quota">Feed the scanner non-food images to burn quota</li>
+        <li data-en="Circumvent scan or Pro limits" data-fr="Contourner les limites de scan ou de Pro">Circumvent scan or Pro limits</li>
+      </ul>
+      <p data-en="We may suspend or close an account that breaks these rules or puts the service at risk for everyone else." data-fr="Nous pouvons suspendre ou fermer un compte qui casse ces règles ou met le service en danger pour les autres.">We may suspend or close an account that breaks these rules or puts the service at risk for everyone else.</p>
+
+      <h2 id="ip"><span class="num">07</span><span data-en="Intellectual property" data-fr="Propriété intellectuelle">Intellectual property</span></h2>
+      <p data-en="The app, design, trademarks and original content are ours. You may not copy, modify or redistribute them. Your photos and logs stay yours. We need a limited licence to store them, run AI on them when you allow it, and show them back to you." data-fr="L’app, le design, les marques et le contenu original sont les nôtres. Pas de copie, modification ou redistribution. Vos photos et journaux restent les vôtres. Nous avons besoin d’une licence limitée pour les stocker, les analyser si vous l’autorisez, et vous les réafficher.">The app, design, trademarks and original content are ours. You may not copy, modify or redistribute them. Your photos and logs stay yours. We need a limited licence to store them, run AI on them when you allow it, and show them back to you.</p>
+
+      <h2 id="legal"><span class="num">08</span><span data-en="Liability and law" data-fr="Responsabilité et droit">Liability and law</span></h2>
+      <div class="stack">
+        <div class="tile"><div class="t" data-en="Availability" data-fr="Disponibilité">Availability</div><p class="d" data-en="We aim to stay up. We do not promise uninterrupted service. Models, stores and networks fail." data-fr="Nous visons la disponibilité. Nous ne promettons pas un service ininterrompu. Les modèles, stores et réseaux tombent.">We aim to stay up. We do not promise uninterrupted service. Models, stores and networks fail.</p></div>
+        <div class="tile"><div class="t" data-en="Limitation" data-fr="Limitation">Limitation</div><p class="d" data-en="To the maximum extent permitted by law, we are not liable for indirect, incidental or consequential damages, or for health outcomes from using the estimates. Our total liability is limited to what you paid for Pro in the twelve months before the claim. Nothing here limits liability that the law does not let us limit, including for death or personal injury caused by negligence where that rule applies." data-fr="Dans la mesure permise par la loi, nous ne sommes pas responsables des dommages indirects, ni des conséquences santé des estimations. Notre responsabilité totale est limitée à ce que vous avez payé pour Pro sur les douze mois précédant la réclamation. Rien ici ne limite une responsabilité que la loi nous interdit de limiter.">To the maximum extent permitted by law, we are not liable for indirect, incidental or consequential damages, or for health outcomes from using the estimates. Our total liability is limited to what you paid for Pro in the twelve months before the claim. Nothing here limits liability that the law does not let us limit, including for death or personal injury caused by negligence where that rule applies.</p></div>
+        <div class="tile"><div class="t" data-en="Governing law" data-fr="Droit applicable">Governing law</div><p class="d" data-en="These terms are governed by the laws of Canada, without regard to conflict-of-law rules. Courts in Canada have jurisdiction, except where consumer law in your country gives you a mandatory local forum." data-fr="Ces conditions sont régies par le droit canadien, hors règles de conflit de lois. Les tribunaux du Canada sont compétents, sauf si le droit de la consommation de votre pays impose un for local.">These terms are governed by the laws of Canada, without regard to conflict-of-law rules. Courts in Canada have jurisdiction, except where consumer law in your country gives you a mandatory local forum.</p></div>
+      </div>
+
+      <h2 id="changes"><span class="num">09</span><span data-en="Changes" data-fr="Changements">Changes</span></h2>
+      <p data-en="We may update these terms as PikCal evolves. Continued use after a change means you accept the new terms. Material changes will be flagged in the app." data-fr="Nous pouvons mettre à jour ces conditions. Continuer après un changement vaut acceptation. Les changements importants seront signalés dans l’app.">We may update these terms as PikCal evolves. Continued use after a change means you accept the new terms. Material changes will be flagged in the app.</p>
+
+      <div class="cta-block">
+        <div>
+          <h2 data-en="Need a line clarified?" data-fr="Une ligne à clarifier ?">Need a line clarified?</h2>
+          <p>support@pikcal.app</p>
+        </div>
+        <a class="btn" href="mailto:support@pikcal.app"><span data-en="Contact" data-fr="Écrire">Contact</span> <i aria-hidden="true">↗</i></a>
+      </div>
+    </article>
+  </main>
+  <script src="legal.js"></script>
 </body>
 </html>

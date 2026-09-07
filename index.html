@@ -1,475 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PikCal - AI Calorie Tracker | Snap. Track. Thrive.</title>
-    <meta name="description" content="PikCal - The easiest way to track calories. Just snap a photo of your meal and get instant AI-powered nutritional analysis. Download free on the App Store.">
-    <meta name="keywords" content="calorie tracker, macro tracker, AI food scanner, nutrition app, diet app, weight loss app, calorie counter, food diary">
-    <meta property="og:title" content="PikCal - AI Calorie Tracker">
-    <meta property="og:description" content="Snap a photo. Get instant nutrition info. Track your goals effortlessly.">
-    <meta property="og:type" content="website">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --ds-black: #000000;
-            --ds-white: #FFFFFF;
-            --ds-gray: #9CA3AF;
-            --ds-dark-gray: #6B7280;
-            --ds-light-gray: #F5F5F5;
-            --ds-accent: #E8A87C;
-            --ds-accent-light: #FDF2E9;
-            --ds-success: #10B981;
-            --ds-calories: #F97316;
-            --ds-protein: #EF4444;
-            --ds-carbs: #F59E0B;
-            --ds-fat: #3B82F6;
-            --spacing-xs: 4px;
-            --spacing-sm: 8px;
-            --spacing-md: 16px;
-            --spacing-lg: 24px;
-            --spacing-xl: 32px;
-            --spacing-xxl: 48px;
-            --spacing-xxxl: 64px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 24px;
-            --radius-full: 9999px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--ds-white);
-            color: var(--ds-black);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 var(--spacing-lg);
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: var(--spacing-xxxl) var(--spacing-lg);
-            background: linear-gradient(180deg, var(--ds-white) 0%, var(--ds-light-gray) 100%);
-        }
-
-        .logo {
-            width: 120px;
-            height: 120px;
-            border-radius: var(--radius-xl);
-            margin: 0 auto var(--spacing-lg);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            overflow: hidden;
-        }
-
-        .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            font-weight: 800;
-            color: var(--ds-black);
-            margin-bottom: var(--spacing-sm);
-            letter-spacing: -1px;
-        }
-
-        .tagline {
-            font-size: 20px;
-            font-weight: 500;
-            color: var(--ds-accent);
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .hero-description {
-            font-size: 18px;
-            color: var(--ds-dark-gray);
-            max-width: 500px;
-            margin: 0 auto var(--spacing-xl);
-            line-height: 1.7;
-        }
-
-        .app-store-badge {
-            display: inline-block;
-            transition: transform 0.2s;
-        }
-
-        .app-store-badge:hover {
-            transform: scale(1.05);
-        }
-
-        .app-store-badge img {
-            height: 54px;
-        }
-
-        /* How it Works */
-        .how-it-works {
-            padding: var(--spacing-xxxl) var(--spacing-lg);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: var(--spacing-xxl);
-        }
-
-        .steps {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-xl);
-            flex-wrap: wrap;
-        }
-
-        .step {
-            text-align: center;
-            flex: 1;
-            min-width: 200px;
-            max-width: 240px;
-        }
-
-        .step-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--ds-light-gray);
-            border-radius: var(--radius-xl);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto var(--spacing-md);
-            font-size: 36px;
-        }
-
-        .step-number {
-            display: inline-block;
-            width: 28px;
-            height: 28px;
-            background: var(--ds-black);
-            color: var(--ds-white);
-            border-radius: 50%;
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 28px;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .step h3 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .step p {
-            font-size: 14px;
-            color: var(--ds-gray);
-        }
-
-        /* Features */
-        .features {
-            padding: var(--spacing-xxxl) var(--spacing-lg);
-            background: var(--ds-black);
-            color: var(--ds-white);
-        }
-
-        .features .section-title {
-            color: var(--ds-white);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: var(--spacing-lg);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .feature-card {
-            background: rgba(255,255,255,0.08);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-lg);
-        }
-
-        .feature-card .icon {
-            font-size: 28px;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .feature-card h4 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .feature-card p {
-            font-size: 13px;
-            color: rgba(255,255,255,0.7);
-        }
-
-        /* Macros */
-        .macros {
-            padding: var(--spacing-xxxl) var(--spacing-lg);
-        }
-
-        .macros-display {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-lg);
-            flex-wrap: wrap;
-            margin-top: var(--spacing-xl);
-        }
-
-        .macro-item {
-            text-align: center;
-        }
-
-        .macro-circle {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto var(--spacing-sm);
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--ds-white);
-        }
-
-        .macro-circle.calories { background: var(--ds-calories); }
-        .macro-circle.protein { background: var(--ds-protein); }
-        .macro-circle.carbs { background: var(--ds-carbs); }
-        .macro-circle.fat { background: var(--ds-fat); }
-
-        .macro-item span {
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--ds-gray);
-        }
-
-        /* CTA */
-        .cta {
-            padding: var(--spacing-xxxl) var(--spacing-lg);
-            background: var(--ds-light-gray);
-            text-align: center;
-        }
-
-        .cta h2 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .cta p {
-            font-size: 16px;
-            color: var(--ds-gray);
-            margin-bottom: var(--spacing-xl);
-        }
-
-        /* Footer */
-        .footer {
-            padding: var(--spacing-xxl) var(--spacing-lg);
-            text-align: center;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-lg);
-            margin-bottom: var(--spacing-lg);
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--ds-dark-gray);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: var(--ds-black);
-        }
-
-        .footer-contact {
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .footer-contact a {
-            color: var(--ds-accent);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .footer-copyright {
-            font-size: 12px;
-            color: var(--ds-gray);
-        }
-
-        @media (max-width: 600px) {
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .tagline {
-                font-size: 18px;
-            }
-
-            .hero-description {
-                font-size: 16px;
-            }
-
-            .section-title {
-                font-size: 26px;
-            }
-
-            .steps {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .step {
-                max-width: 300px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PikCal — Snap. Track. Eat with the numbers in view.</title>
+  <meta name="description" content="PikCal estimates calories and macros from a photo, a barcode, a label or a sentence. iPhone and Android.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="PikCal">
+  <meta property="og:description" content="Track food in a few seconds. Photo, barcode, label, or a typed sentence.">
+  <link rel="icon" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="theme.css">
 </head>
 <body>
-    <!-- Hero -->
-    <section class="hero">
-        <div class="container">
-            <div class="logo">
-                <img src="logo.png" alt="PikCal Logo">
-            </div>
-            <h1>PikCal</h1>
-            <p class="tagline">Snap. Track. Thrive.</p>
-            <p class="hero-description">
-                The easiest way to track calories. Just snap a photo of your meal and let AI do the rest. No more manual logging or guessing portions.
-            </p>
-            <a href="https://apps.apple.com/app/pikcal" class="app-store-badge">
-                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
-            </a>
+  <main id="content" class="page">
+    <section class="hero-home reveal">
+      <div>
+        <div class="kicker"><span class="dots" aria-hidden="true"><span></span><span></span><span></span></span> PikCal</div>
+        <h1 data-en="The plate,<br>then the<br>numbers." data-fr="L’assiette,<br>puis les<br>chiffres.">The plate,<br>then the<br>numbers.</h1>
+        <p class="subhead" style="max-width:38ch" data-en="Photograph a meal. Or a barcode. Or a label. Or type a sentence. Calories, protein, carbs and fat land on Today — in the same three colours the ring uses." data-fr="Photographiez un repas. Ou un code-barres. Ou une étiquette. Ou tapez une phrase. Calories, protéines, glucides et lipides arrivent sur Aujourd’hui — dans les trois couleurs de l’anneau.">Photograph a meal. Or a barcode. Or a label. Or type a sentence. Calories, protein, carbs and fat land on Today — in the same three colours the ring uses.</p>
+        <div class="badges">
+          <a href="https://apps.apple.com/app/pikcal-ai-calorie-counter/id6756538222" aria-label="Download on the App Store">
+            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" height="48">
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.pikcal.app" aria-label="Get it on Google Play">
+            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" height="48" style="height:72px;margin:-12px">
+          </a>
         </div>
+      </div>
+
+      <div class="phone" aria-hidden="true">
+        <div class="week">
+          <div>S<b>22</b></div>
+          <div>M<b>23</b></div>
+          <div>T<span class="on">24</span></div>
+          <div>W<b>25</b></div>
+          <div>T<b>26</b></div>
+          <div>F<b>27</b></div>
+          <div>S<b>28</b></div>
+        </div>
+        <div class="hero-card">
+          <div>
+            <div class="kcal">1 105</div>
+            <div class="kcal-cap">kcal remaining</div>
+            <div class="kcal-cap">1 095 of 2 200</div>
+          </div>
+          <svg width="104" height="104" viewBox="0 0 104 104" aria-hidden="true">
+            <circle cx="52" cy="52" r="45" fill="none" stroke="var(--stroke)" stroke-width="11"></circle>
+            <circle cx="52" cy="52" r="45" fill="none" stroke="var(--protein)" stroke-width="11" stroke-dasharray="33.4 249.3" transform="rotate(-90 52 52)"></circle>
+            <circle cx="52" cy="52" r="45" fill="none" stroke="var(--carbs)" stroke-width="11" stroke-dasharray="65.7 217" stroke-dashoffset="-33.4" transform="rotate(-90 52 52)"></circle>
+            <circle cx="52" cy="52" r="45" fill="none" stroke="var(--fat)" stroke-width="11" stroke-dasharray="42.3 240.4" stroke-dashoffset="-99.1" transform="rotate(-90 52 52)"></circle>
+          </svg>
+        </div>
+        <div class="macros3">
+          <div class="m-tile"><strong>81 <small>g</small></strong><span>Protein</span></div>
+          <div class="m-tile"><strong>119 <small>g</small></strong><span>Carbs</span></div>
+          <div class="m-tile"><strong>35 <small>g</small></strong><span>Fat</span></div>
+        </div>
+        <div class="scan-cta" data-en="Scan a meal" data-fr="Scanner un repas">Scan a meal</div>
+      </div>
     </section>
 
-    <!-- How it Works -->
-    <section class="how-it-works">
-        <div class="container">
-            <h2 class="section-title">How It Works</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-icon">&#128247;</div>
-                    <span class="step-number">1</span>
-                    <h3>Snap</h3>
-                    <p>Take a photo of your meal — breakfast, lunch, dinner, or snack</p>
-                </div>
-                <div class="step">
-                    <div class="step-icon">&#129302;</div>
-                    <span class="step-number">2</span>
-                    <h3>Analyze</h3>
-                    <p>AI instantly identifies foods and estimates portions</p>
-                </div>
-                <div class="step">
-                    <div class="step-icon">&#128202;</div>
-                    <span class="step-number">3</span>
-                    <h3>Track</h3>
-                    <p>See calories and macros added to your daily progress</p>
-                </div>
-            </div>
-        </div>
+    <section class="how reveal">
+      <article>
+        <div class="n">01 · Snap</div>
+        <h3 data-en="The plate" data-fr="L’assiette">The plate</h3>
+        <p data-en="Camera, barcode, nutrition table, or a sentence. Four ways in. One log." data-fr="Caméra, code-barres, tableau nutritionnel, ou une phrase. Quatre entrées. Un journal.">Camera, barcode, nutrition table, or a sentence. Four ways in. One log.</p>
+      </article>
+      <article>
+        <div class="n">02 · Read</div>
+        <h3 data-en="The ring" data-fr="L’anneau">The ring</h3>
+        <p data-en="Protein, carbs and fat share the day ring in proportion. Colour means composition. Nothing else." data-fr="Protéines, glucides et lipides se partagent l’anneau du jour. La couleur dit la composition. Rien d’autre.">Protein, carbs and fat share the day ring in proportion. Colour means composition. Nothing else.</p>
+      </article>
+      <article>
+        <div class="n">03 · Keep</div>
+        <h3 data-en="The plan" data-fr="Le plan">The plan</h3>
+        <p data-en="Targets are calculated on the phone. Height, weight and age never go to the writing models." data-fr="Les objectifs sont calculés sur le téléphone. Taille, poids et âge n’ont pas aux modèles qui rédigent.">Targets are calculated on the phone. Height, weight and age never go to the writing models.</p>
+      </article>
     </section>
 
-    <!-- Features -->
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">Why PikCal?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="icon">&#9889;</div>
-                    <h4>Instant Analysis</h4>
-                    <p>Get nutritional info in seconds, not minutes of searching databases</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">&#127919;</div>
-                    <h4>Personalized Goals</h4>
-                    <p>Calorie and macro targets based on your body and objectives</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">&#128200;</div>
-                    <h4>Progress Tracking</h4>
-                    <p>Visual dashboard to monitor your daily and weekly trends</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon">&#128221;</div>
-                    <h4>Easy Corrections</h4>
-                    <p>Edit any meal if the AI gets something wrong</p>
-                </div>
-            </div>
-        </div>
+    <section class="cta-block reveal">
+      <div>
+        <h2 data-en="Legal, in the same type." data-fr="Le légal, dans la même typo.">Legal, in the same type.</h2>
+        <p data-en="Privacy, terms, support — written for the product you actually installed." data-fr="Confidentialité, conditions, support — écrits pour le produit que vous avez installé.">Privacy, terms, support — written for the product you actually installed.</p>
+      </div>
+      <a class="btn" href="privacy.html">Privacy policy <i aria-hidden="true">↗</i></a>
     </section>
-
-    <!-- Macros -->
-    <section class="macros">
-        <div class="container">
-            <h2 class="section-title">Track What Matters</h2>
-            <div class="macros-display">
-                <div class="macro-item">
-                    <div class="macro-circle calories">&#128293;</div>
-                    <span>Calories</span>
-                </div>
-                <div class="macro-item">
-                    <div class="macro-circle protein">P</div>
-                    <span>Protein</span>
-                </div>
-                <div class="macro-item">
-                    <div class="macro-circle carbs">C</div>
-                    <span>Carbs</span>
-                </div>
-                <div class="macro-item">
-                    <div class="macro-circle fat">F</div>
-                    <span>Fat</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta">
-        <div class="container">
-            <h2>Start Your Journey Today</h2>
-            <p>Join thousands tracking their nutrition the easy way</p>
-            <a href="https://apps.apple.com/app/pikcal" class="app-store-badge">
-                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
-            </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-links">
-            <a href="support.html">Support</a>
-            <a href="faq.html">FAQ</a>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms of Service</a>
-        </div>
-        <div class="footer-contact">
-            <p>Questions? <a href="mailto:support@pikcal.app">support@pikcal.app</a></p>
-        </div>
-        <p class="footer-copyright">&copy; 2025 PikCal. All rights reserved.</p>
-    </footer>
+  </main>
+  <script src="legal.js"></script>
 </body>
 </html>

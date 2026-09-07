@@ -1,850 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ - PikCal</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --ds-black: #000000;
-            --ds-white: #FFFFFF;
-            --ds-gray: #9CA3AF;
-            --ds-light-gray: #F5F5F5;
-            --ds-accent: #E8A87C;
-            --ds-accent-light: #FDF2E9;
-            --ds-success: #10B981;
-            --ds-danger: #E57373;
-            --spacing-xs: 4px;
-            --spacing-sm: 8px;
-            --spacing-md: 16px;
-            --spacing-lg: 24px;
-            --spacing-xl: 32px;
-            --spacing-xxl: 48px;
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 24px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--ds-white);
-            color: var(--ds-black);
-            line-height: 1.6;
-        }
-
-        .header {
-            background: var(--ds-white);
-            padding: var(--spacing-xl) var(--spacing-lg);
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0,0,0,0.08);
-        }
-
-        .header-content {
-            max-width: 680px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--spacing-md);
-        }
-
-        .back-link {
-            position: absolute;
-            left: var(--spacing-lg);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-            color: var(--ds-gray);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .back-link:hover {
-            color: var(--ds-black);
-        }
-
-        .logo-small {
-            width: 36px;
-            height: 36px;
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-        }
-
-        .logo-small img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .header h1 {
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        .container {
-            max-width: 680px;
-            margin: 0 auto;
-            padding: var(--spacing-xl) var(--spacing-lg);
-        }
-
-        .hero {
-            text-align: center;
-            margin-bottom: var(--spacing-xxl);
-            padding: var(--spacing-xxl) 0;
-        }
-
-        .hero-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--ds-light-gray);
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto var(--spacing-lg);
-        }
-
-        .hero-icon svg {
-            width: 32px;
-            height: 32px;
-            color: var(--ds-black);
-        }
-
-        .hero h2 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .hero .subtitle {
-            font-size: 16px;
-            color: var(--ds-gray);
-        }
-
-        .search-box {
-            margin-top: var(--spacing-lg);
-            position: relative;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: var(--spacing-md) var(--spacing-lg);
-            padding-left: 48px;
-            border: 2px solid var(--ds-light-gray);
-            border-radius: var(--radius-lg);
-            font-family: inherit;
-            font-size: 15px;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .search-box input:focus {
-            border-color: var(--ds-black);
-        }
-
-        .search-box svg {
-            position: absolute;
-            left: var(--spacing-md);
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--ds-gray);
-        }
-
-        .category {
-            margin-bottom: var(--spacing-xxl);
-        }
-
-        .category-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--ds-gray);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: var(--spacing-md);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-        }
-
-        .category-title .icon {
-            font-size: 16px;
-        }
-
-        .faq-list {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-sm);
-        }
-
-        .faq-item {
-            background: var(--ds-light-gray);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            transition: all 0.2s;
-        }
-
-        .faq-item:hover {
-            background: #EFEFEF;
-        }
-
-        .faq-item.active {
-            background: var(--ds-white);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-
-        .faq-question {
-            width: 100%;
-            padding: var(--spacing-lg);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: var(--spacing-md);
-            background: none;
-            border: none;
-            cursor: pointer;
-            text-align: left;
-            font-family: inherit;
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--ds-black);
-        }
-
-        .faq-question:hover {
-            color: var(--ds-black);
-        }
-
-        .faq-icon {
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-        }
-
-        .faq-answer-content {
-            padding: 0 var(--spacing-lg) var(--spacing-lg);
-            font-size: 14px;
-            color: var(--ds-gray);
-            line-height: 1.7;
-        }
-
-        .faq-answer-content a {
-            color: var(--ds-accent);
-            text-decoration: none;
-        }
-
-        .faq-answer-content a:hover {
-            text-decoration: underline;
-        }
-
-        .faq-answer-content ul {
-            margin: var(--spacing-sm) 0;
-            padding-left: var(--spacing-lg);
-        }
-
-        .faq-answer-content li {
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .contact-card {
-            background: var(--ds-black);
-            color: var(--ds-white);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-xl);
-            text-align: center;
-            margin-top: var(--spacing-xxl);
-        }
-
-        .contact-card h3 {
-            color: var(--ds-white);
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .contact-card p {
-            color: rgba(255,255,255,0.7);
-            margin-bottom: var(--spacing-lg);
-            font-size: 15px;
-        }
-
-        .contact-card a {
-            display: inline-block;
-            background: var(--ds-white);
-            color: var(--ds-black);
-            padding: var(--spacing-md) var(--spacing-xl);
-            border-radius: var(--radius-md);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            transition: transform 0.2s;
-        }
-
-        .contact-card a:hover {
-            transform: scale(1.02);
-        }
-
-        .footer {
-            text-align: center;
-            padding: var(--spacing-xxl) var(--spacing-lg);
-            color: var(--ds-gray);
-            font-size: 13px;
-        }
-
-        .footer a {
-            color: var(--ds-accent);
-            text-decoration: none;
-        }
-
-        .no-results {
-            text-align: center;
-            padding: var(--spacing-xxl);
-            color: var(--ds-gray);
-            display: none;
-        }
-
-        .no-results.show {
-            display: block;
-        }
-
-        @media (max-width: 600px) {
-            .back-link {
-                position: static;
-                margin-bottom: var(--spacing-md);
-            }
-
-            .header-content {
-                flex-direction: column;
-            }
-
-            .faq-question {
-                font-size: 14px;
-                padding: var(--spacing-md);
-            }
-
-            .faq-answer-content {
-                padding: 0 var(--spacing-md) var(--spacing-md);
-                font-size: 13px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ · PikCal</title>
+  <meta name="description" content="Answers for PikCal — scanning, Pro, Health Connect, Apple Health, export and deletion.">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="theme.css">
 </head>
 <body>
-    <div class="header">
-        <a href="./" class="back-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M15 18l-6-6 6-6"/>
-            </svg>
-            Back
-        </a>
-        <div class="header-content">
-            <div class="logo-small">
-                <img src="logo.png" alt="PikCal">
-            </div>
-            <h1>PikCal</h1>
-        </div>
+  <main id="content" class="page" style="max-width:760px">
+    <header class="lede reveal" style="position:static;margin-bottom:8px">
+      <div class="kicker"><span class="dots" aria-hidden="true"><span></span><span></span><span></span></span> FAQ</div>
+      <h1 data-en="Questions,<br>answered." data-fr="Questions,<br>réponses.">Questions,<br>answered.</h1>
+      <p class="subhead" data-en="Search, or open a category. Still stuck — support@pikcal.app." data-fr="Cherchez, ou ouvrez une catégorie. Toujours bloqué — support@pikcal.app.">Search, or open a category. Still stuck — support@pikcal.app.</p>
+    </header>
+    <input class="faq-search reveal" type="search" placeholder="Search — scan, Pro, delete, Health…" aria-label="Search FAQ">
+
+    <section data-cat id="getting-started" class="reveal">
+      <h2 class="cat-title" data-en="Getting started" data-fr="Démarrer">Getting started</h2>
+      <div class="faq-item" data-keywords="how work photo barcode text plan">
+        <button class="faq-q" type="button"><span data-en="How does PikCal work?" data-fr="Comment ça marche ?">How does PikCal work?</span><span>+</span></button>
+        <div class="faq-a" data-en="Photograph a plate, scan a barcode, photograph a nutrition table, or type a sentence. The app estimates calories and macros and files the meal on Today. You can always edit the result." data-fr="Photographiez une assiette, scannez un code-barres, photographiez un tableau nutritionnel, ou tapez une phrase. L’app estime calories et macros et range le repas sur Aujourd’hui. Vous pouvez toujours corriger.">Photograph a plate, scan a barcode, photograph a nutrition table, or type a sentence. The app estimates calories and macros and files the meal on Today. You can always edit the result.</div>
+      </div>
+      <div class="faq-item" data-keywords="accurate estimate 10 20">
+        <button class="faq-q" type="button"><span data-en="How accurate are the numbers?" data-fr="Les chiffres sont-ils justes ?">How accurate are the numbers?</span><span>+</span></button>
+        <div class="faq-a" data-en="They are estimates. On a well-lit plate with everything visible, they are often within about 10–20% of a weighed meal. Shoot from above, keep foods unstacked, and correct what looks off. Use them for trends, not lab values." data-fr="Ce sont des estimations. Sur une assiette nette, souvent à 10–20 % d’un repas pesé. Photographiez du dessus, aliments visibles, et corrigez ce qui cloche. Pour les tendances, pas pour un labo.">They are estimates. On a well-lit plate with everything visible, they are often within about 10–20% of a weighed meal. Shoot from above, keep foods unstacked, and correct what looks off. Use them for trends, not lab values.</div>
+      </div>
+      <div class="faq-item" data-keywords="goals tdee on device body">
+        <button class="faq-q" type="button"><span data-en="How is my plan calculated?" data-fr="Comment le plan est-il calculé ?">How is my plan calculated?</span><span>+</span></button>
+        <div class="faq-a" data-en="On the phone, from age, sex, height, weight, activity, goal and pace. Those numbers never go to the plan-writing models. You can change the targets in Settings." data-fr="Sur le téléphone, à partir de l’âge, du sexe, de la taille, du poids, de l’activité, de l’objectif et du rythme. Ces chiffres n’ont pas aux modèles qui rédigent le plan. Modifiables dans Réglages.">On the phone, from age, sex, height, weight, activity, goal and pace. Those numbers never go to the plan-writing models. You can change the targets in Settings.</div>
+      </div>
+    </section>
+
+    <section data-cat id="scanning">
+      <h2 class="cat-title" data-en="Scanning" data-fr="Scan">Scanning</h2>
+      <div class="faq-item" data-keywords="wrong edit correct">
+        <button class="faq-q" type="button"><span data-en="The AI got it wrong" data-fr="L’IA s’est trompée">The AI got it wrong</span><span>+</span></button>
+        <div class="faq-a" data-en="Open the meal. Edit names, portions and macros, add or remove items, or delete it. You can also send a correction hint and re-run the analysis." data-fr="Ouvrez le repas. Modifiez noms, portions et macros, ajoutez ou retirez, ou supprimez. Vous pouvez aussi envoyer un indice et relancer l’analyse.">Open the meal. Edit names, portions and macros, add or remove items, or delete it. You can also send a correction hint and re-run the analysis.</div>
+      </div>
+      <div class="faq-item" data-keywords="offline internet">
+        <button class="faq-q" type="button"><span data-en="Does it work offline?" data-fr="Ça marche hors ligne ?">Does it work offline?</span><span>+</span></button>
+        <div class="faq-a" data-en="You can read Today and history offline. A new AI scan needs a network. Barcode and typed meals still need a lookup when they hit the catalog or the models." data-fr="Aujourd’hui et l’historique se lisent hors ligne. Un nouveau scan IA a besoin du réseau. Code-barres et saisie ont aussi besoin d’un accès pour le catalogue ou les modèles.">You can read Today and history offline. A new AI scan needs a network. Barcode and typed meals still need a lookup when they hit the catalog or the models.</div>
+      </div>
+      <div class="faq-item" data-keywords="limit scans free pro android ios">
+        <button class="faq-q" type="button"><span data-en="How many scans do I get?" data-fr="Combien de scans ?">How many scans do I get?</span><span>+</span></button>
+        <div class="faq-a" data-en="iPhone: free accounts currently get 3 AI scans a day; Pro is unlimited. Android: photo scan is a Pro feature; barcode and typed meals stay on the free side, with history capped at 14 days until Pro." data-fr="iPhone : 3 scans IA par jour en gratuit actuellement ; Pro illimité. Android : le scan photo est Pro ; code-barres et saisie restent en gratuit, historique limité à 14 jours sans Pro.">iPhone: free accounts currently get 3 AI scans a day; Pro is unlimited. Android: photo scan is a Pro feature; barcode and typed meals stay on the free side, with history capped at 14 days until Pro.</div>
+      </div>
+      <div class="faq-item" data-keywords="failed error lighting">
+        <button class="faq-q" type="button"><span data-en="My scan keeps failing" data-fr="Le scan échoue">My scan keeps failing</span><span>+</span></button>
+        <div class="faq-a" data-en="Usually a weak connection, a blurry or dark frame, or a brief model outage. Retry on Wi-Fi, with the plate lit from above. If it keeps failing, mail us the time and a screenshot." data-fr="Souvent une connexion faible, un flou, une assiette sombre, ou une brève panne de modèle. Réessayez en Wi-Fi, lumière du dessus. Si ça continue, envoyez-nous l’heure et une capture.">Usually a weak connection, a blurry or dark frame, or a brief model outage. Retry on Wi-Fi, with the plate lit from above. If it keeps failing, mail us the time and a screenshot.</div>
+      </div>
+    </section>
+
+    <section data-cat id="premium">
+      <h2 class="cat-title" data-en="Pro &amp; billing" data-fr="Pro et facturation">Pro &amp; billing</h2>
+      <div class="faq-item" data-keywords="premium pro features">
+        <button class="faq-q" type="button"><span data-en="What does Pro include?" data-fr="Que contient Pro ?">What does Pro include?</span><span>+</span></button>
+        <div class="faq-a" data-en="Unlimited photo scans, full history, saved foods, and the analysis surfaces that ship with the current version. The paywall in the app is the live list." data-fr="Scans photo illimités, historique complet, aliments enregistrés, et les analyses de la version en cours. Le paywall de l’app fait foi.">Unlimited photo scans, full history, saved foods, and the analysis surfaces that ship with the current version. The paywall in the app is the live list.</div>
+      </div>
+      <div class="faq-item" data-keywords="cancel subscription apple google play">
+        <button class="faq-q" type="button"><span data-en="How do I cancel?" data-fr="Comment annuler ?">How do I cancel?</span><span>+</span></button>
+        <div class="faq-a" data-en="iPhone: Settings → your name → Subscriptions → PikCal → Cancel. Android: Play Store → profile → Payments &amp; subscriptions → Subscriptions → PikCal. You keep Pro until the period ends." data-fr="iPhone : Réglages → votre nom → Abonnements → PikCal → Annuler. Android : Play Store → profil → Paiements et abonnements → Abonnements → PikCal. Pro reste jusqu’à la fin de période.">iPhone: Settings → your name → Subscriptions → PikCal → Cancel. Android: Play Store → profile → Payments &amp; subscriptions → Subscriptions → PikCal. You keep Pro until the period ends.</div>
+      </div>
+      <div class="faq-item" data-keywords="refund apple google">
+        <button class="faq-q" type="button"><span data-en="Can I get a refund?" data-fr="Remboursement ?">Can I get a refund?</span><span>+</span></button>
+        <div class="faq-a" data-en="We cannot reverse a store charge. Apple: reportaproblem.apple.com. Google: the Play subscriptions page. Their policies decide." data-fr="Nous ne pouvons pas inverser un paiement store. Apple : reportaproblem.apple.com. Google : la page des abonnements Play. Leurs règles tranchent.">We cannot reverse a store charge. Apple: reportaproblem.apple.com. Google: the Play subscriptions page. Their policies decide.</div>
+      </div>
+      <div class="faq-item" data-keywords="restore purchase">
+        <button class="faq-q" type="button"><span data-en="I paid, but Pro is not on" data-fr="J’ai payé, Pro n’est pas là">I paid, but Pro is not on</span><span>+</span></button>
+        <div class="faq-a" data-en="In the app, Restore purchases. Use the same Apple ID or Google account that paid. Still dark? Mail us the store and the approximate time of purchase." data-fr="Dans l’app, Restaurer les achats. Même identifiant Apple ou compte Google que le paiement. Toujours bloqué ? Écrivez-nous le store et l’heure approximative.">In the app, Restore purchases. Use the same Apple ID or Google account that paid. Still dark? Mail us the store and the approximate time of purchase.</div>
+      </div>
+    </section>
+
+    <section data-cat id="privacy">
+      <h2 class="cat-title" data-en="Privacy" data-fr="Confidentialité">Privacy</h2>
+      <div class="faq-item" data-keywords="safe photos ai openrouter train">
+        <button class="faq-q" type="button"><span data-en="Is my data safe?" data-fr="Mes données sont-elles en sécurité ?">Is my data safe?</span><span>+</span></button>
+        <div class="faq-a" data-en="In transit, everything is HTTPS. We do not sell personal information. A meal photo or typed description goes to OpenRouter, then Google and/or OpenAI, only after you Allow it in the app. We do not train our own models on your meals. Model providers follow their own policies — we do not claim they never train. Full map: the <a href='privacy.html'>privacy policy</a>." data-fr="En transit, tout passe en HTTPS. Nous ne vendons pas vos données. Une photo ou une description va vers OpenRouter, puis Google et/ou OpenAI, seulement après Allow. Nous n’entraînons pas nos modèles sur vos repas. Les fournisseurs ont leurs propres règles — nous ne promettons pas qu’ils n’entraînent jamais. Carte complète : <a href='privacy.html'>politique de confidentialité</a>.">In transit, everything is HTTPS. We do not sell personal information. A meal photo or typed description goes to OpenRouter, then Google and/or OpenAI, only after you Allow it in the app. We do not train our own models on your meals. Model providers follow their own policies — we do not claim they never train. Full map: the <a href="privacy.html">privacy policy</a>.</div>
+      </div>
+      <div class="faq-item" data-keywords="delete account">
+        <button class="faq-q" type="button"><span data-en="How do I delete my account?" data-fr="Supprimer mon compte ?">How do I delete my account?</span><span>+</span></button>
+        <div class="faq-a" data-en="Settings → Delete account. Confirm. Meals, photos, profile and the auth account go. Store receipts stay with Apple or Google. Irreversible." data-fr="Réglages → Supprimer le compte. Confirmez. Repas, photos, profil et auth partent. Les reçus restent chez Apple ou Google. Irréversible.">Settings → Delete account. Confirm. Meals, photos, profile and the auth account go. Store receipts stay with Apple or Google. Irreversible.</div>
+      </div>
+      <div class="faq-item" data-keywords="export json">
+        <button class="faq-q" type="button"><span data-en="Can I export my data?" data-fr="Puis-je exporter ?">Can I export my data?</span><span>+</span></button>
+        <div class="faq-a" data-en="Yes. Settings → Export my data. You get a JSON file of what the app holds locally. You can also ask support@pikcal.app." data-fr="Oui. Réglages → Exporter mes données. Un JSON de ce que l’app détient en local. Aussi par support@pikcal.app.">Yes. Settings → Export my data. You get a JSON file of what the app holds locally. You can also ask support@pikcal.app.</div>
+      </div>
+      <div class="faq-item" data-keywords="health connect apple health">
+        <button class="faq-q" type="button"><span data-en="What about Apple Health / Health Connect?" data-fr="Apple Santé / Health Connect ?">What about Apple Health / Health Connect?</span><span>+</span></button>
+        <div class="faq-a" data-en="Optional. iOS can read weight and active calories and write nutrition to HealthKit. Android uses Health Connect, not Google Fit. Steps, active calories and latest weight stay on the device. Meal writes happen only if you turn sync on." data-fr="Optionnel. iOS peut lire poids et calories actives et écrire la nutrition dans HealthKit. Android utilise Health Connect, pas Google Fit. Pas, calories actives et dernier poids restent sur l’appareil. L’écriture des repas n’a lieu que si la synchro est activée.">Optional. iOS can read weight and active calories and write nutrition to HealthKit. Android uses Health Connect, not Google Fit. Steps, active calories and latest weight stay on the device. Meal writes happen only if you turn sync on.</div>
+      </div>
+    </section>
+
+    <section data-cat id="troubleshooting">
+      <h2 class="cat-title" data-en="Troubleshooting" data-fr="Dépannage">Troubleshooting</h2>
+      <div class="faq-item" data-keywords="camera permission">
+        <button class="faq-q" type="button"><span data-en="The camera does nothing" data-fr="La caméra ne fait rien">The camera does nothing</span><span>+</span></button>
+        <div class="faq-a" data-en="iPhone: Settings → PikCal → Camera. Android: Settings → Apps → PikCal → Permissions → Camera. Then reopen the app." data-fr="iPhone : Réglages → PikCal → Caméra. Android : Paramètres → Applications → PikCal → Autorisations → Appareil photo. Puis rouvrez l’app.">iPhone: Settings → PikCal → Camera. Android: Settings → Apps → PikCal → Permissions → Camera. Then reopen the app.</div>
+      </div>
+      <div class="faq-item" data-keywords="slow freeze crash">
+        <button class="faq-q" type="button"><span data-en="The app is slow or stuck" data-fr="L’app est lente ou figée">The app is slow or stuck</span><span>+</span></button>
+        <div class="faq-a" data-en="Force-close, check the network, update from the store, restart the phone. If it keeps happening, send device + OS + app version from Settings." data-fr="Forcer la fermeture, vérifier le réseau, mettre à jour, redémarrer. Si ça continue, envoyez appareil + OS + version depuis Réglages.">Force-close, check the network, update from the store, restart the phone. If it keeps happening, send device + OS + app version from Settings.</div>
+      </div>
+    </section>
+
+    <div class="cta-block reveal">
+      <div>
+        <h2 data-en="Still stuck?" data-fr="Toujours bloqué ?">Still stuck?</h2>
+        <p>support@pikcal.app</p>
+      </div>
+      <a class="btn" href="mailto:support@pikcal.app"><span data-en="Contact" data-fr="Écrire">Contact</span> <i aria-hidden="true">↗</i></a>
     </div>
-
-    <div class="container">
-        <div class="hero">
-            <div class="hero-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"/>
-                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-                    <line x1="12" y1="17" x2="12.01" y2="17"/>
-                </svg>
-            </div>
-            <h2>Frequently Asked Questions</h2>
-            <p class="subtitle">Find answers to common questions about PikCal</p>
-
-            <div class="search-box">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"/>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                </svg>
-                <input type="text" id="searchInput" placeholder="Search questions...">
-            </div>
-        </div>
-
-        <div id="faqContainer">
-            <!-- Getting Started -->
-            <div class="category" data-category="getting-started">
-                <div class="category-title">
-                    <span class="icon">&#128640;</span> Getting Started
-                </div>
-                <div class="faq-list">
-                    <div class="faq-item" data-keywords="how work scan photo ai">
-                        <button class="faq-question">
-                            <span>How does PikCal work?</span>
-                            <span class="faq-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="5" x2="12" y2="19"/>
-                                    <line x1="5" y1="12" x2="19" y2="12"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                Simply take a photo of your meal and our AI instantly identifies the foods, estimates portions, and calculates calories and macros (protein, carbs, fat). Your meals are saved automatically so you can track your daily intake and progress toward your goals.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item" data-keywords="accurate accuracy calorie estimate precise">
-                        <button class="faq-question">
-                            <span>How accurate are the calorie estimates?</span>
-                            <span class="faq-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="5" x2="12" y2="19"/>
-                                    <line x1="5" y1="12" x2="19" y2="12"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                Our AI provides estimates that are typically within 10-20% of actual values for common foods with clear visibility. Accuracy depends on image quality, food visibility, and portion clarity. For the best results:
-                                <ul>
-                                    <li>Take photos from above with good lighting</li>
-                                    <li>Make sure all foods are visible</li>
-                                    <li>Use the correction feature if something looks off</li>
-                                </ul>
-                                Remember, these are estimates to help you track trends, not exact measurements.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item" data-keywords="goals calculated tdee bmr personalized">
-                        <button class="faq-question">
-                            <span>How are my daily goals calculated?</span>
-                            <span class="faq-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="5" x2="12" y2="19"/>
-                                    <line x1="5" y1="12" x2="19" y2="12"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                Your goals are personalized based on the information you provide during setup: age, gender, height, weight, activity level, and goal (lose, maintain, or gain weight). We use scientifically-backed formulas to calculate your Total Daily Energy Expenditure (TDEE), then adjust based on your target. You can always modify your goals in Settings.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Scanning & Tracking -->
-            <div class="category" data-category="scanning">
-                <div class="category-title">
-                    <span class="icon">&#128247;</span> Scanning & Tracking
-                </div>
-                <div class="faq-list">
-                    <div class="faq-item" data-keywords="wrong incorrect fix edit correct mistake">
-                        <button class="faq-question">
-                            <span>What if the AI gets something wrong?</span>
-                            <span class="faq-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="5" x2="12" y2="19"/>
-                                    <line x1="5" y1="12" x2="19" y2="12"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                No problem! Tap on any scanned meal to view details, then use the "That's not right" option to provide a correction hint. The AI will re-analyze with your input. You can also manually edit individual food items, adjust portions, or remove incorrect entries.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item" data-keywords="edit meal change modify portion">
-                        <button class="faq-question">
-                            <span>Can I edit meals after scanning?</span>
-                            <span class="faq-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="5" x2="12" y2="19"/>
-                                    <line x1="5" y1="12" x2="19" y2="12"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                Yes! Tap any meal in your history to open it. From there you can:
-                                <ul>
-                                    <li>Edit food names and portions</li>
-                                    <li>Adjust calorie and macro values</li>
-                                    <li>Add or remove food items</li>
-                                    <li>Delete the entire meal</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item" data-keywords="offline internet connection wifi">
-                        <button class="faq-question">
-                            <span>Does PikCal work offline?</span>
-                            <span class="faq-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="5" x2="12" y2="19"/>
-                                    <line x1="5" y1="12" x2="19" y2="12"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                You can view your existing meals and history offline, but scanning new meals requires an internet connection since the AI analysis happens on our servers. When you're back online, everything syncs automatically.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item" data-keywords="limit scans per day daily free">
-                        <button class="faq-question">
-                            <span>How many scans do I get per day?</span>
-                            <span class="faq-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="5" x2="12" y2="19"/>
-                                    <line x1="5" y1="12" x2="19" y2="12"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                Free users get 3 scans per day, which resets every 24 hours. Premium subscribers enjoy unlimited scans with no daily limits.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Premium & Subscription -->
-            <div class="category" data-category="premium">
-                <div class="category-title">
-                    <span class="icon">&#11088;</span> Premium & Subscription
-                </div>
-                <div class="faq-list">
-                    <div class="faq-item" data-keywords="premium free difference features benefits">
-                        <button class="faq-question">
-                            <span>What's included in Premium?</span>
-                            <span class="faq-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="5" x2="12" y2="19"/>
-                                    <line x1="5" y1="12" x2="19" y2="12"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                Premium unlocks:
-                                <ul>
-                                    <li><strong>Unlimited scans</strong> — No daily limits</li>
-                                    <li><strong>Advanced analytics</strong> — Detailed insights and trends</li>
-                                    <li><strong>Priority support</strong> — Faster response times</li>
-                                    <li><strong>Future features</strong> — Early access to new capabilities</li>
-                                </ul>
-                                Free users can still track meals with 3 scans per day.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item" data-keywords="cancel subscription stop payment unsubscribe">
-                        <button class="faq-question">
-                            <span>How do I cancel my subscription?</span>
-                            <span class="faq-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="5" x2="12" y2="19"/>
-                                    <line x1="5" y1="12" x2="19" y2="12"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                Subscriptions are managed through Apple:
-                                <ul>
-                                    <li>Open <strong>Settings</strong> on your iPhone</li>
-                                    <li>Tap your <strong>Apple ID</strong> at the top</li>
-                                    <li>Tap <strong>Subscriptions</strong></li>
-                                    <li>Select <strong>PikCal</strong> and tap <strong>Cancel</strong></li>
-                                </ul>
-                                You'll keep Premium access until the end of your billing period.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item" data-keywords="refund money back payment">
-                        <button class="faq-question">
-                            <span>Can I get a refund?</span>
-                            <span class="faq-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="5" x2="12" y2="19"/>
-                                    <line x1="5" y1="12" x2="19" y2="12"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                Since subscriptions are processed through Apple, refund requests must go through them. Visit <a href="https://reportaproblem.apple.com" target="_blank">reportaproblem.apple.com</a> to request a refund for any recent purchase.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item" data-keywords="restore purchase premium not working">
-                        <button class="faq-question">
-                            <span>I paid for Premium but it's not showing</span>
-                            <span class="faq-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="5" x2="12" y2="19"/>
-                                    <line x1="5" y1="12" x2="19" y2="12"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                Go to <strong>Settings → Restore Purchases</strong> in the app. This will sync your subscription status with Apple. If it still doesn't work, make sure you're signed into the same Apple ID you used for the purchase, then try again. Still having issues? <a href="mailto:support@pikcal.app">Contact us</a>.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Privacy & Data -->
-            <div class="category" data-category="privacy">
-                <div class="category-title">
-                    <span class="icon">&#128274;</span> Privacy & Data
-                </div>
-                <div class="faq-list">
-                    <div class="faq-item" data-keywords="data safe secure privacy photos">
-                        <button class="faq-question">
-                            <span>Is my data safe?</span>
-                            <span class="faq-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="5" x2="12" y2="19"/>
-                                    <line x1="5" y1="12" x2="19" y2="12"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                Yes! Your data is encrypted in transit and stored securely on enterprise-grade servers. We never sell your personal information to third parties. Your meal photos are only used to provide nutritional analysis — never for training AI models or advertising. See our <a href="privacy.html">Privacy Policy</a> for full details.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item" data-keywords="delete account remove erase data">
-                        <button class="faq-question">
-                            <span>How do I delete my account?</span>
-                            <span class="faq-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="5" x2="12" y2="19"/>
-                                    <line x1="5" y1="12" x2="19" y2="12"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                Go to <strong>Settings → Delete Account</strong>. You'll need to confirm by typing "DELETE". This permanently removes all your data including meals, photos, goals, and profile information. This action cannot be undone.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item" data-keywords="export download data backup">
-                        <button class="faq-question">
-                            <span>Can I export my data?</span>
-                            <span class="faq-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="5" x2="12" y2="19"/>
-                                    <line x1="5" y1="12" x2="19" y2="12"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                Data export is not currently available in the app, but you can request a copy of your data by emailing <a href="mailto:support@pikcal.app">support@pikcal.app</a>. We'll provide your data within 30 days as required by privacy regulations.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Troubleshooting -->
-            <div class="category" data-category="troubleshooting">
-                <div class="category-title">
-                    <span class="icon">&#128736;</span> Troubleshooting
-                </div>
-                <div class="faq-list">
-                    <div class="faq-item" data-keywords="camera not working permission denied access">
-                        <button class="faq-question">
-                            <span>The camera isn't working</span>
-                            <span class="faq-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="5" x2="12" y2="19"/>
-                                    <line x1="5" y1="12" x2="19" y2="12"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                Make sure PikCal has camera permission:
-                                <ul>
-                                    <li>Go to iPhone <strong>Settings → PikCal</strong></li>
-                                    <li>Enable <strong>Camera</strong> access</li>
-                                    <li>Restart the app</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item" data-keywords="slow loading stuck freeze crash">
-                        <button class="faq-question">
-                            <span>The app is slow or freezing</span>
-                            <span class="faq-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="5" x2="12" y2="19"/>
-                                    <line x1="5" y1="12" x2="19" y2="12"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                Try these steps:
-                                <ul>
-                                    <li>Force close and reopen the app</li>
-                                    <li>Check your internet connection</li>
-                                    <li>Restart your iPhone</li>
-                                    <li>Update to the latest version from the App Store</li>
-                                </ul>
-                                If problems persist, <a href="mailto:support@pikcal.app">contact support</a>.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="faq-item" data-keywords="scan failed error analyze">
-                        <button class="faq-question">
-                            <span>My scan keeps failing</span>
-                            <span class="faq-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="12" y1="5" x2="12" y2="19"/>
-                                    <line x1="5" y1="12" x2="19" y2="12"/>
-                                </svg>
-                            </span>
-                        </button>
-                        <div class="faq-answer">
-                            <div class="faq-answer-content">
-                                Scan failures are usually due to:
-                                <ul>
-                                    <li><strong>Poor connection</strong> — Try on a stable WiFi network</li>
-                                    <li><strong>Image quality</strong> — Ensure good lighting and focus</li>
-                                    <li><strong>Server issues</strong> — Wait a few minutes and try again</li>
-                                </ul>
-                                If you consistently see errors, please <a href="mailto:support@pikcal.app">let us know</a>.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="no-results" id="noResults">
-            <p>No questions found matching your search.</p>
-            <p style="margin-top: 8px;">Try different keywords or <a href="mailto:support@pikcal.app">contact support</a>.</p>
-        </div>
-
-        <div class="contact-card">
-            <h3>Still have questions?</h3>
-            <p>We're here to help</p>
-            <a href="mailto:support@pikcal.app">Contact Support</a>
-        </div>
-    </div>
-
-    <div class="footer">
-        <p>&copy; 2025 PikCal. All rights reserved.</p>
-        <p><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a></p>
-    </div>
-
-    <script>
-        // Accordion functionality
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const item = button.parentElement;
-                const wasActive = item.classList.contains('active');
-
-                // Close all items
-                document.querySelectorAll('.faq-item').forEach(i => {
-                    i.classList.remove('active');
-                });
-
-                // Toggle clicked item
-                if (!wasActive) {
-                    item.classList.add('active');
-                }
-            });
-        });
-
-        // Search functionality
-        const searchInput = document.getElementById('searchInput');
-        const faqContainer = document.getElementById('faqContainer');
-        const noResults = document.getElementById('noResults');
-
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase().trim();
-            let hasResults = false;
-
-            document.querySelectorAll('.faq-item').forEach(item => {
-                const question = item.querySelector('.faq-question span').textContent.toLowerCase();
-                const answer = item.querySelector('.faq-answer-content').textContent.toLowerCase();
-                const keywords = item.dataset.keywords || '';
-
-                const matches = question.includes(query) ||
-                               answer.includes(query) ||
-                               keywords.includes(query);
-
-                item.style.display = matches ? 'block' : 'none';
-                if (matches) hasResults = true;
-            });
-
-            // Show/hide categories based on visible items
-            document.querySelectorAll('.category').forEach(category => {
-                const visibleItems = category.querySelectorAll('.faq-item[style="display: block"], .faq-item:not([style])');
-                const hasVisibleItems = Array.from(category.querySelectorAll('.faq-item')).some(
-                    item => item.style.display !== 'none'
-                );
-                category.style.display = hasVisibleItems ? 'block' : 'none';
-            });
-
-            // Show no results message
-            noResults.classList.toggle('show', !hasResults && query.length > 0);
-        });
-    </script>
+  </main>
+  <script src="legal.js"></script>
 </body>
 </html>
